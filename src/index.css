@@ -1,16 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --color-page: #FAF6ED;
-  --color-hero: #0C0E14;
-  --color-card: #FFFDF8;
-  --color-card-border: #EFE2CD;
-  --color-accent-gold: #D4AF37;
-  --color-accent-amber: #C86314;
-  --color-dark-obsidian: #0C0E14;
-  --color-dark-surface: #141722;
-  --color-text-primary: #241810;
-  --color-text-secondary: #766457;
+  --saffron: #D4A017;
+  --saffron-light: #F5D061;
+  --cardamom: #1B4332;
+  --cardamom-light: #2D6A4F;
+  --chili: #C1121F;
+  --chili-dark: #780000;
+  --midnight: #1A1A2E;
+  --midnight-light: #2D2D44;
+  --cream: #FDF8F0;
+  --cream-dark: #F5EDE0;
+  --surface: #2D2D44;
+  --text-primary: #1A1A2E;
+  --text-secondary: #6B7280;
+}
+
+@font-face {
+  font-family: 'FoodDisplay';
+  src: local('Georgia'), local('Times New Roman');
+  font-display: swap;
 }
 
 html {
@@ -20,9 +29,9 @@ html {
 }
 
 body {
-  color: #241810;
-  background-color: #FAF6ED;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  color: var(--text-primary);
+  background-color: var(--cream);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   letter-spacing: -0.012em;
@@ -35,25 +44,19 @@ body {
   overflow-x: hidden;
 }
 
-/* Ensure all media cannot cause horizontal overflow */
 img, video, canvas, svg {
   max-width: 100%;
   height: auto;
 }
 
-/* Anchor offset so fixed/sticky headers never overlap section headers */
 [id] {
-  scroll-margin-top: 5.5rem;
+  scroll-margin-top: 6rem;
 }
 
-/* Left-to-right continuous product ticker tape marquee */
+/* Marquee animation */
 @keyframes marquee-ltr {
-  0% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
 }
 
 .animate-marquee-ltr {
@@ -66,33 +69,125 @@ img, video, canvas, svg {
   animation-play-state: paused;
 }
 
-/* Custom sleek dark & gold scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #0C0E14;
-}
-::-webkit-scrollbar-thumb {
-  background: #2D313E;
-  border-radius: 9999px;
-  border: 1px solid #D4AF37;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #D4AF37;
+/* Scroll animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* Print thermal kitchen receipt styling */
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+/* Premium card styling */
+.card-premium {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 8px 24px rgba(0,0,0,0.06);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1), 0 16px 32px rgba(0,0,0,0.12);
+}
+
+/* Gold accent button */
+.btn-gold {
+  background: linear-gradient(135deg, var(--saffron) 0%, var(--saffron-light) 100%);
+  color: var(--midnight);
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(212, 160, 23, 0.3);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
+}
+
+/* Chili red button */
+.btn-chili {
+  background: linear-gradient(135deg, var(--chili) 0%, var(--chili-dark) 100%);
+  color: white;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 12px rgba(193, 18, 31, 0.3);
+}
+
+.btn-chili:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(193, 18, 31, 0.4);
+}
+
+/* Dark section */
+.section-dark {
+  background: linear-gradient(180deg, var(--midnight) 0%, var(--midnight-light) 100%);
+  color: white;
+}
+
+/* Category pill */
+.cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.8);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.cat-pill:hover, .cat-pill.active {
+  background: var(--saffron);
+  color: var(--midnight);
+  border-color: var(--saffron);
+}
+
+/* Availability badge */
+.badge-available {
+  background: var(--cardamom);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-unavailable {
+  background: #EF4444;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Spice indicator */
+.spice-mild { color: #22C55E; }
+.spice-medium { color: #F59E0B; }
+.spice-hot { color: #EF4444; }
+
+/* Print styles */
 @media print {
-  body {
-    background: #FFFFFF !important;
-    color: #000000 !important;
-  }
-  .no-print {
-    display: none !important;
-  }
-  .print-only {
-    display: block !important;
-  }
+  body { background: white !important; color: black !important; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
 }

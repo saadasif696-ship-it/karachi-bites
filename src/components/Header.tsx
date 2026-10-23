@@ -44,8 +44,8 @@ export const Header: React.FC<HeaderProps> = ({
 
   return (
     <>
-      <header className="sticky top-0 z-40 bg-[#0C0E14]/92 backdrop-blur-md border-b border-[#252834] transition-all shadow-md">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 h-18 flex items-center justify-between gap-2 sm:gap-4">
+      <header className="sticky top-0 z-40 bg-[#1A1A2E]/95 backdrop-blur-md border-b border-[#D4A017]/20 transition-all shadow-lg">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-2 sm:gap-4">
           {/* Brand Logo & Branch Tag */}
           <div className="flex items-center gap-2 sm:gap-3.5">
             {/* Clickable Brand Logo pointing to homepage */}
@@ -66,11 +66,11 @@ export const Header: React.FC<HeaderProps> = ({
                   className="h-8 w-auto max-h-8 max-w-[36px] object-contain block shrink-0 drop-shadow-[0_2px_6px_rgba(212,175,55,0.25)] group-hover:scale-105 transition-transform"
                 />
                 <div className="flex flex-col justify-center leading-tight">
-                  <span className="font-serif tracking-wider font-extrabold text-xs sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#F5D77F] via-[#D4AF37] to-[#C86314] uppercase">
+                  <span className="font-serif tracking-wider font-extrabold text-xs sm:text-sm text-transparent bg-clip-text bg-gradient-to-r from-[#F5D061] via-[#D4A017] to-[#C1121F] uppercase">
                     Karachi Bites
                   </span>
                   <span className="text-[8px] sm:text-[9px] text-[#A89E8C] tracking-widest uppercase font-medium">
-                    Royal Kitchen
+                    Spice Route
                   </span>
                 </div>
               </div>
@@ -82,13 +82,13 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => setBranchDropdownOpen(!branchDropdownOpen)}
                 className={`inline-flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-bold px-2.5 sm:px-3.5 py-1.5 rounded-full border shadow-sm transition-all cursor-pointer ${
                   isClifton
-                    ? 'bg-[#181C26] hover:bg-[#202534] text-[#D4AF37] border-[#D4AF37]/70 ring-1 ring-[#D4AF37]/30'
-                    : 'bg-[#141722] text-[#E0D7CB] border-[#2A2E3D] hover:bg-[#1E2230]'
+                    ? 'bg-[#D4A017]/10 hover:bg-[#D4A017]/20 text-[#D4A017] border-[#D4A017]/70 ring-1 ring-[#D4A017]/30'
+                    : 'bg-[#2D2D44] text-[#E0D7CB] border-[#4A4D6B] hover:bg-[#3A3D5B]'
                 }`}
                 title="Click to switch kitchen branch"
               >
-                <MapPin className={`w-3.5 h-3.5 ${isClifton ? 'text-[#D4AF37]' : 'text-[#C86314]'}`} />
-                <span className={isClifton ? 'text-[#D4AF37] font-black' : 'text-[#E0D7CB]'}>
+                <MapPin className={`w-3.5 h-3.5 ${isClifton ? 'text-[#D4A017]' : 'text-[#C1121F]'}`} />
+                <span className={isClifton ? 'text-[#D4A017] font-black' : 'text-[#E0D7CB]'}>
                   {selectedBranch.name}
                 </span>
                 <span className="hidden sm:inline text-[#8E867A]">
@@ -99,8 +99,8 @@ export const Header: React.FC<HeaderProps> = ({
 
               {/* Branch Selection Dropdown */}
               {branchDropdownOpen && (
-                <div className="absolute left-0 mt-2 w-56 bg-[#141722] border border-[#2B2F3E] rounded-2xl shadow-2xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
-                  <div className="px-3.5 py-1.5 text-[10px] uppercase font-black text-[#8E867A] border-b border-[#242838]">
+                <div className="absolute left-0 mt-2 w-56 bg-[#2D2D44] border border-[#4A4D6B] rounded-2xl shadow-2xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
+                  <div className="px-3.5 py-1.5 text-[10px] uppercase font-black text-[#A89E8C] border-b border-[#3A3D5B]">
                     Select Kitchen Branch
                   </div>
                   {branches.map((b) => {
@@ -114,15 +114,15 @@ export const Header: React.FC<HeaderProps> = ({
                         }}
                         className={`w-full text-left px-3.5 py-2.5 flex items-center justify-between transition-colors cursor-pointer ${
                           isCurrent
-                            ? 'bg-[#1D2230] text-[#D4AF37] font-black'
-                            : 'hover:bg-[#1A1E2C] text-[#C5BDB0]'
+                            ? 'bg-[#D4A017]/10 text-[#D4A017] font-black'
+                            : 'hover:bg-[#3A3D5B] text-[#E0D7CB]'
                         }`}
                       >
                         <div className="flex items-center gap-2">
-                          <MapPin className="w-3.5 h-3.5 text-[#D4AF37]" />
+                          <MapPin className="w-3.5 h-3.5 text-[#D4A017]" />
                           <span>{b.name}</span>
                         </div>
-                        <span className="text-[10px] text-[#8E867A]">
+                        <span className="text-[10px] text-[#A89E8C]">
                           {b.deliveryEstimate}
                         </span>
                       </button>
@@ -134,30 +134,31 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-6 text-sm font-bold text-[#C5BDB0]">
+          <nav className="hidden lg:flex items-center gap-8 text-sm font-bold text-[#E0D7CB]">
             <a
               href="#menu"
-              className="hover:text-[#D4AF37] transition-colors py-1 relative"
+              className="hover:text-[#D4A017] transition-colors py-1 relative group"
             >
               Menu
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#D4A017] transition-all group-hover:w-full"></span>
             </a>
             <button
               onClick={onOpenTrack}
-              className="hover:text-[#D4AF37] transition-colors cursor-pointer py-1 flex items-center gap-1.5"
+              className="hover:text-[#D4A017] transition-colors cursor-pointer py-1 flex items-center gap-1.5"
             >
-              <Package className="w-4 h-4 text-[#D4AF37]" />
+              <Package className="w-4 h-4 text-[#D4A017]" />
               Track Order
             </button>
             <button
               onClick={onOpenAdmin}
-              className="hover:text-[#D4AF37] transition-colors flex items-center gap-1.5 cursor-pointer py-1 text-[#8E867A]"
+              className="hover:text-[#D4A017] transition-colors flex items-center gap-1.5 cursor-pointer py-1 text-[#A89E8C]"
             >
-              <ShieldCheck className="w-4 h-4 text-[#8E867A]" />
+              <ShieldCheck className="w-4 h-4 text-[#A89E8C]" />
               Staff Portal
             </button>
             <a
               href="tel:+922135876543"
-              className="text-xs text-[#8E867A] hover:text-[#D4AF37] transition-colors flex items-center gap-1 font-mono"
+              className="text-xs text-[#A89E8C] hover:text-[#D4A017] transition-colors flex items-center gap-1 font-mono"
             >
               <Phone className="w-3.5 h-3.5" />
               021-35876543
@@ -171,7 +172,7 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="relative">
                 <button
                   onClick={() => setUserDropdownOpen(!userDropdownOpen)}
-                  className="flex items-center gap-1.5 sm:gap-2 p-1 pl-1.5 pr-2 sm:pr-2.5 rounded-full bg-[#141722] hover:bg-[#1D2230] border border-[#2B2F3E] hover:border-[#D4AF37] transition-all cursor-pointer shadow-sm active:scale-95"
+                  className="flex items-center gap-1.5 sm:gap-2 p-1 pl-1.5 pr-2 sm:pr-2.5 rounded-full bg-[#2D2D44] hover:bg-[#3A3D5B] border border-[#4A4D6B] hover:border-[#D4A017] transition-all cursor-pointer shadow-sm active:scale-95"
                   aria-label="User Account Menu"
                 >
                   <UserAvatar user={currentUser} size="sm" showGoogleRing={true} showOnlineBadge={true} />
@@ -180,20 +181,20 @@ export const Header: React.FC<HeaderProps> = ({
                     <span className="text-xs font-bold text-white max-w-[100px] truncate">
                       {currentUser.given_name || currentUser.name.split(' ')[0]}
                     </span>
-                    <span className="text-[10px] text-[#D4AF37] font-bold">Google</span>
+                    <span className="text-[10px] text-[#D4A017] font-bold">Google</span>
                   </div>
 
                   <ChevronDown className="w-3.5 h-3.5 text-[#8E867A]" />
                 </button>
 
                 {userDropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-64 bg-[#141722] border border-[#2B2F3E] rounded-2xl shadow-2xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
-                    <div className="px-4 py-3 border-b border-[#242838] bg-[#181C28]">
+                  <div className="absolute right-0 mt-2 w-64 bg-[#2D2D44] border border-[#4A4D6B] rounded-2xl shadow-2xl py-2 z-50 text-xs animate-in fade-in zoom-in-95 duration-150">
+                    <div className="px-4 py-3 border-b border-[#3A3D5B] bg-[#3A3D5B]">
                       <div className="flex items-center gap-3">
                         <UserAvatar user={currentUser} size="lg" showGoogleRing={true} showOnlineBadge={true} />
                         <div className="min-w-0 flex-1">
                           <div className="font-bold text-white text-sm truncate">{currentUser.name}</div>
-                          <div className="text-[11px] text-[#8E867A] truncate font-mono mt-0.5">{currentUser.email}</div>
+                          <div className="text-[11px] text-[#A89E8C] truncate font-mono mt-0.5">{currentUser.email}</div>
                           <span className="inline-flex items-center gap-1 text-[10px] font-bold text-[#2E7D32] bg-[#2E7D32]/10 border border-[#2E7D32]/30 px-2 py-0.5 rounded-full mt-1.5">
                             Verified Google Account
                           </span>
@@ -210,10 +211,10 @@ export const Header: React.FC<HeaderProps> = ({
                         className="w-full text-left px-4 py-2.5 hover:bg-[#1C2130] text-[#C5BDB0] hover:text-[#D4AF37] cursor-pointer font-semibold flex items-center justify-between transition-colors"
                       >
                         <span className="flex items-center gap-2">
-                          <Package className="w-3.5 h-3.5 text-[#D4AF37]" />
+                          <Package className="w-3.5 h-3.5 text-[#D4A017]" />
                           My Orders & Live Tracking
                         </span>
-                        <span className="text-[10px] text-[#8E867A] font-mono">Live</span>
+                        <span className="text-[10px] text-[#A89E8C] font-mono">Live</span>
                       </button>
 
                       <button
@@ -264,7 +265,7 @@ export const Header: React.FC<HeaderProps> = ({
               id="header-cart-btn"
               onClick={onOpenCart}
               aria-label={`Shopping Cart with ${cartCount} items`}
-              className="relative flex items-center gap-1.5 sm:gap-2 bg-[#C86314] hover:bg-[#D48400] text-white px-3 sm:px-4.5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] shadow-md hover:shadow-lg active:scale-95"
+              className="relative flex items-center gap-1.5 sm:gap-2 bg-[#C1121F] hover:bg-[#780000] text-white px-3 sm:px-4.5 py-2 sm:py-2.5 rounded-full font-bold text-xs sm:text-sm transition-all cursor-pointer min-h-[40px] sm:min-h-[42px] shadow-md hover:shadow-lg active:scale-95"
             >
               <ShoppingBag className="w-4 h-4" id="header-cart-icon" />
               <span className="tabular-nums font-black">{cartCount}</span>
@@ -278,7 +279,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Accessible Mobile Hamburger Toggle Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-xl bg-[#141722] hover:bg-[#1E2230] text-[#D4AF37] border border-[#2B2F3E] cursor-pointer transition-colors"
+              className="lg:hidden p-2 rounded-xl bg-[#2D2D44] hover:bg-[#3A3D5B] text-[#D4A017] border border-[#4A4D6B] cursor-pointer transition-colors"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={mobileMenuOpen}
             >
@@ -291,13 +292,13 @@ export const Header: React.FC<HeaderProps> = ({
       {/* Accessible Responsive Mobile Navigation Drawer */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 lg:hidden bg-black/80 backdrop-blur-md animate-in fade-in duration-150">
-          <div className="absolute top-18 left-0 right-0 bg-[#0C0E14] border-b border-[#252834] p-5 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto">
+          <div className="absolute top-16 left-0 right-0 bg-[#1A1A2E] border-b border-[#D4A017]/20 p-5 space-y-4 shadow-2xl max-h-[85vh] overflow-y-auto">
             {/* Quick Actions */}
             <div className="grid grid-cols-2 gap-2.5">
               <a
                 href="#menu"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-2 bg-[#161A26] hover:bg-[#202534] text-white p-3 rounded-2xl text-xs font-bold border border-[#2B2F3E]"
+                className="flex items-center justify-center gap-2 bg-[#2D2D44] hover:bg-[#3A3D5B] text-white p-3 rounded-2xl text-xs font-bold border border-[#4A4D6B]"
               >
                 Menu
               </a>
@@ -306,7 +307,7 @@ export const Header: React.FC<HeaderProps> = ({
                   setMobileMenuOpen(false);
                   onOpenTrack();
                 }}
-                className="flex items-center justify-center gap-2 bg-[#161A26] hover:bg-[#202534] text-[#D4AF37] p-3 rounded-2xl text-xs font-bold border border-[#2B2F3E]"
+                className="flex items-center justify-center gap-2 bg-[#2D2D44] hover:bg-[#3A3D5B] text-[#D4A017] p-3 rounded-2xl text-xs font-bold border border-[#4A4D6B]"
               >
                 <Package className="w-4 h-4 text-[#D4AF37]" />
                 Track Order
@@ -314,8 +315,8 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Branch Switcher for Mobile */}
-            <div className="p-3.5 rounded-2xl bg-[#141722] border border-[#262A38]">
-              <span className="text-[10px] uppercase font-black text-[#8E867A] block mb-2">
+            <div className="p-3.5 rounded-2xl bg-[#2D2D44] border border-[#4A4D6B]">
+              <span className="text-[10px] uppercase font-black text-[#A89E8C] block mb-2">
                 Fulfilling Kitchen Branch
               </span>
               <div className="grid grid-cols-3 gap-2">
@@ -328,8 +329,8 @@ export const Header: React.FC<HeaderProps> = ({
                     }}
                     className={`py-2 px-1 text-center rounded-xl text-[11px] font-bold border transition-colors ${
                       b.id === selectedBranch.id
-                        ? 'bg-[#D4AF37] text-[#0C0E14] border-[#D4AF37]'
-                        : 'bg-[#1C2130] text-[#C5BDB0] border-[#2A2F3E]'
+                        ? 'bg-[#D4A017] text-[#1A1A2E] border-[#D4A017]'
+                        : 'bg-[#3A3D5B] text-[#E0D7CB] border-[#4A4D6B]'
                     }`}
                   >
                     {b.name}
@@ -339,28 +340,28 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Clickable Kitchen Hotlines */}
-            <div className="space-y-2 pt-1 border-t border-[#202432]">
-              <span className="text-[10px] uppercase font-black text-[#8E867A] block">
+            <div className="space-y-2 pt-1 border-t border-[#4A4D6B]">
+              <span className="text-[10px] uppercase font-black text-[#A89E8C] block">
                 Direct Kitchen Hotlines
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs font-mono">
                 <a
                   href="tel:+922135876543"
-                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#141722] border border-[#262A38] text-[#D4AF37] hover:bg-[#1E2332]"
+                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#2D2D44] border border-[#4A4D6B] text-[#D4A017] hover:bg-[#3A3D5B]"
                 >
                   <span>Clifton:</span>
                   <strong>+92 21 35876543</strong>
                 </a>
                 <a
                   href="tel:+922134987654"
-                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#141722] border border-[#262A38] text-[#D4AF37] hover:bg-[#1E2332]"
+                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#2D2D44] border border-[#4A4D6B] text-[#D4A017] hover:bg-[#3A3D5B]"
                 >
                   <span>Gulshan:</span>
                   <strong>+92 21 34987654</strong>
                 </a>
                 <a
                   href="tel:+922136654321"
-                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#141722] border border-[#262A38] text-[#D4AF37] hover:bg-[#1E2332]"
+                  className="flex items-center justify-between p-2.5 rounded-xl bg-[#2D2D44] border border-[#4A4D6B] text-[#D4A017] hover:bg-[#3A3D5B]"
                 >
                   <span>Nazimabad:</span>
                   <strong>+92 21 36654321</strong>
@@ -369,13 +370,13 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
 
             {/* Staff portal and Contact link */}
-            <div className="pt-2 flex items-center justify-between border-t border-[#202432] text-xs">
+            <div className="pt-2 flex items-center justify-between border-t border-[#4A4D6B] text-xs">
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   onOpenAdmin();
                 }}
-                className="text-[#8E867A] hover:text-[#D4AF37] flex items-center gap-1.5 py-1"
+                className="text-[#A89E8C] hover:text-[#D4A017] flex items-center gap-1.5 py-1"
               >
                 <ShieldCheck className="w-4 h-4" />
                 Staff Portal
@@ -383,7 +384,7 @@ export const Header: React.FC<HeaderProps> = ({
 
               <a
                 href="mailto:contact@karachibites.pk"
-                className="text-[#8E867A] hover:text-[#D4AF37] flex items-center gap-1.5 py-1"
+                className="text-[#A89E8C] hover:text-[#D4A017] flex items-center gap-1.5 py-1"
               >
                 <Mail className="w-4 h-4" />
                 contact@karachibites.pk

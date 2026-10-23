@@ -14,18 +14,18 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
   categoryCounts
 }) => {
   return (
-    <div className="border-b-2 border-[#EFE2CD] bg-[#FAF6ED]/95 backdrop-blur-md sticky top-18 z-30 py-3 shadow-xs">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="flex items-center gap-2.5 overflow-x-auto pb-1 scrollbar-none no-scrollbar">
+    <div className="sticky top-16 z-30 py-4 bg-[#FDF8F0]/95 backdrop-blur-md border-b border-[#D4A017]/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none no-scrollbar">
           <button
             onClick={() => onSelectCategory('all')}
-            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black whitespace-nowrap transition-all cursor-pointer min-h-[40px] active:scale-95 ${
+            className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer min-h-[44px] active:scale-95 ${
               activeCategory === 'all'
-                ? 'bg-[#0C0E14] text-[#D4AF37] border-2 border-[#D4AF37] shadow-md ring-2 ring-[#D4AF37]/25'
-                : 'bg-[#FFFDF8] text-[#766457] hover:text-[#0C0E14] hover:bg-white border-2 border-[#EFE2CD] shadow-2xs'
+                ? 'bg-[#D4A017] text-[#1A1A2E] shadow-lg shadow-[#D4A017]/30'
+                : 'bg-white text-[#6B7280] hover:text-[#1A1A2E] border border-[#E5E7EB] hover:border-[#D4A017]'
             }`}
           >
-            All Items {categoryCounts['all'] ? `(${categoryCounts['all']})` : ''}
+            All ({categoryCounts['all'] || 0})
           </button>
 
           {categories.map((cat) => {
@@ -35,13 +35,13 @@ export const CategoryNav: React.FC<CategoryNavProps> = ({
               <button
                 key={cat}
                 onClick={() => onSelectCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-black whitespace-nowrap transition-all cursor-pointer min-h-[40px] active:scale-95 ${
+                className={`px-6 py-3 rounded-full text-xs sm:text-sm font-bold whitespace-nowrap transition-all cursor-pointer min-h-[44px] active:scale-95 ${
                   isSelected
-                    ? 'bg-[#0C0E14] text-[#D4AF37] border-2 border-[#D4AF37] shadow-md ring-2 ring-[#D4AF37]/25'
-                    : 'bg-[#FFFDF8] text-[#766457] hover:text-[#0C0E14] hover:bg-white border-2 border-[#EFE2CD] shadow-2xs'
+                    ? 'bg-[#D4A017] text-[#1A1A2E] shadow-lg shadow-[#D4A017]/30'
+                    : 'bg-white text-[#6B7280] hover:text-[#1A1A2E] border border-[#E5E7EB] hover:border-[#D4A017]'
                 }`}
               >
-                {cat} {count > 0 ? `(${count})` : ''}
+                {cat} ({count})
               </button>
             );
           })}
