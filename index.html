@@ -1,0 +1,2954 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#0F1115" />
+  <title>Karachi Bites | Premium Desi Cuisine & Fast Online Ordering</title>
+  <meta name="description" content="Order authentic Karachi Biryani, Mutton Karahi, and Charcoal BBQ online with instant delivery in Clifton, Gulshan, and North Nazimabad. Fresh, hot & premium." />
+  
+  <!-- Dynamic Golden Flame SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D4AF37'%3E%3Cpath d='M12 2c1.5 3 4 5.5 4 8.5 0 3-2 5.5-4 5.5s-4-2.5-4-5.5C8 7.5 10.5 5 12 2zm0 18c-4.4 0-8-3.6-8-8 0-3.1 1.7-5.8 4.3-7.2-.2 1-.3 2.1-.3 3.2 0 4.4 3.6 8 8 8 1.1 0 2.2-.1 3.2-.3-1.4 2.6-4.1 4.3-7.2 4.3z'/%3E%3C/svg%3E" />
+
+  <!-- Google Fonts: Cinzel & Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Libraries: Three.js, GSAP, ScrollTrigger, Lenis, Lucide -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* ==========================================================================
+       ROYAL OBSIDIAN & LIQUID GOLD LUXURY COLOR SYSTEM
+       ========================================================================== */
+    :root {
+      --bg-canvas: #0F1115;
+      --surface-card: #181B22;
+      --surface-card-hover: #1E222B;
+      --border-subtle: #2A2F3D;
+      --border-gold: rgba(212, 175, 55, 0.4);
+      --gold-primary: #D4AF37;
+      --gold-saffron: #FFB800;
+      --orange-lava: #FF4500;
+      --text-main: #FFFFFF;
+      --text-muted: #A8A296;
+      --text-dim: #6E7480;
+      --glow-gold: rgba(212, 175, 55, 0.45);
+      --glow-lava: rgba(255, 69, 0, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html, body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      overflow-x: hidden;
+      width: 100%;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+    }
+
+    h1, h2, h3, .font-royal {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.03em;
+    }
+
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Metallic Gold Gradient Typography */
+    .text-liquid-gold {
+      background: linear-gradient(135deg, #FFFDF8 0%, #F5D77F 25%, #D4AF37 50%, #FF8C00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .text-lava {
+      color: var(--orange-lava);
+    }
+
+    .text-saffron {
+      color: var(--gold-saffron);
+    }
+
+    /* Ambient Hero Radial Glow */
+    .ambient-glow-backdrop {
+      background: radial-gradient(circle at 50% 30%, rgba(255, 69, 0, 0.16) 0%, rgba(212, 175, 55, 0.08) 35%, rgba(15, 17, 21, 1) 72%);
+    }
+
+    /* Glassmorphism Classes */
+    .glass-surface {
+      background: rgba(24, 27, 34, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .glass-surface-gold {
+      background: rgba(24, 27, 34, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-gold);
+    }
+
+        /* ==========================================================================
+       SECTION 6: ULTRA-PREMIUM BUTTON ANIMATIONS & UNIVERSAL HOVER SYSTEM (2026)
+       ========================================================================== */
+
+    /* Universal Button Base: Every button gets smooth, tactile spring hover & active animations */
+    button,
+    .btn-primary-liquid,
+    .btn-outline-conic,
+    .btn-kinetic,
+    .pill-filter,
+    a.btn-primary-liquid,
+    a.btn-outline-conic {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                  background-color 0.2s ease,
+                  border-color 0.2s ease,
+                  color 0.2s ease,
+                  filter 0.2s ease;
+    }
+
+    /* Prevent pseudo-elements from intercepting pointer clicks */
+    button::before,
+    button::after,
+    .btn-primary-liquid::before,
+    .btn-primary-liquid::after,
+    .btn-outline-conic::before,
+    .btn-outline-conic::after,
+    .pill-filter::before,
+    .pill-filter::after,
+    .touch-ripple {
+      pointer-events: none !important;
+    }
+
+    /* Prevent text and icons inside buttons from trapping clicks */
+    button > *,
+    a.btn-primary-liquid > *,
+    a.btn-outline-conic > *,
+    .btn-kinetic > * {
+      pointer-events: none;
+    }
+
+    /* Universal Cursor Hover Elevation & Glow for ALL buttons */
+    button:hover,
+    a.btn-primary-liquid:hover,
+    a.btn-outline-conic:hover {
+      transform: translateY(-2px) scale(1.03);
+      filter: brightness(1.08);
+    }
+
+    /* Universal Depress on Click/Tap (Tactile Active State without cursor escape) */
+    button:active,
+    a.btn-primary-liquid:active,
+    a.btn-outline-conic:active {
+      transform: translateY(1px) scale(0.98);
+      transition-duration: 0.08s;
+    }
+
+    /* 1. Primary CTA Buttons ("Explore Menu", "Add to Cart", "Checkout Now") */
+    .btn-primary-liquid {
+      background: linear-gradient(135deg, #0F1115 0%, #D4AF37 50%, #FF8C00 100%);
+      color: #0F1115;
+      font-weight: 800;
+      font-size: 0.92rem;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.85rem 1.85rem;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+      z-index: 1;
+      text-decoration: none;
+      isolation: isolate;
+    }
+
+    /* Shimmer Glint Sweep: Diagonal high-sheen liquid light sweep (#FFFFFF at 25% opacity) */
+    .btn-primary-liquid::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -160%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.05) 20%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(255, 255, 255, 0.05) 80%,
+        transparent 100%
+      );
+      transform: rotate(25deg);
+      transition: left 0.75s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .btn-primary-liquid:hover::before {
+      left: 190%;
+    }
+
+    .btn-primary-liquid:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.45), 0 8px 24px rgba(255, 69, 0, 0.3);
+      color: #000000;
+    }
+
+    .btn-primary-liquid:active {
+      transform: translateY(1px) scale(0.96) !important;
+    }
+
+    /* 2. Category Filters & Branch Selector Pills */
+    .pill-filter {
+      background: #141720;
+      border: 1px solid var(--border-subtle);
+      color: #A8A296;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 9999px;
+      padding: 0.6rem 1.25rem;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      z-index: 1;
+      isolation: isolate;
+    }
+
+    /* Magnetic Slide Fill: Gold gradient fill slides diagonally from left-to-right */
+    .pill-filter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(255, 140, 0, 0.25) 100%);
+      transform: translateX(-100%) skewX(-20deg);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: -1;
+      border-radius: 9999px;
+    }
+
+    .pill-filter:not(.active):hover::before {
+      transform: translateX(0) skewX(0);
+    }
+
+    .pill-filter:not(.active):hover {
+      color: #FFFFFF;
+      border-color: rgba(212, 175, 55, 0.6);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 4px 18px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Dynamic Active Indicator: Glowing liquid border animation & saffron text color */
+    @keyframes liquidBorderWave {
+      0%, 100% {
+        border-color: #D4AF37;
+        box-shadow: 0 0 12px rgba(212, 175, 55, 0.45), inset 0 0 8px rgba(212, 175, 55, 0.2);
+      }
+      50% {
+        border-color: #FFB800;
+        box-shadow: 0 0 22px rgba(255, 184, 0, 0.75), inset 0 0 12px rgba(255, 69, 0, 0.35);
+      }
+    }
+
+    .pill-filter.active {
+      background: rgba(24, 27, 34, 0.95);
+      border: 1px solid #D4AF37;
+      color: var(--gold-saffron) !important;
+      font-weight: 800;
+      animation: liquidBorderWave 2.4s infinite ease-in-out;
+    }
+
+    .pill-filter.active::before {
+      transform: translateX(0) skewX(0);
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(255, 69, 0, 0.15) 100%);
+    }
+
+    /* 3. Cart Quantity (+ / -) & Close Icons with Kinetic Haptic Feedback */
+    .btn-kinetic {
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #1D222E;
+      border: 1px solid var(--border-subtle);
+      color: #FFFDF8;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .btn-kinetic:hover {
+      border-color: var(--gold-primary);
+      background: #252B3A;
+      color: var(--gold-saffron);
+      transform: translateY(-2px) scale(1.12);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    }
+
+    .btn-kinetic:active,
+    .btn-kinetic.is-pulsing {
+      transform: rotate(90deg) scale(1.22);
+    }
+
+    /* 4. Secondary Outline Buttons ("View Details", "Search", "Close") */
+    .btn-outline-conic {
+      background: transparent;
+      color: #D4AF37;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.65rem 1.35rem;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      z-index: 1;
+      text-decoration: none;
+      isolation: isolate;
+    }
+
+    /* Animated Conic Border Sweep: Running metallic gold light loop along outer 1px border */
+    .btn-outline-conic::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 300%;
+      height: 300%;
+      background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        rgba(212, 175, 55, 0.2) 10%,
+        #D4AF37 20%,
+        #FFFDF8 30%,
+        #FF8C00 40%,
+        transparent 55%,
+        rgba(212, 175, 55, 0.3) 70%,
+        #D4AF37 80%,
+        transparent 92%
+      );
+      transform: translate(-50%, -50%) rotate(0deg);
+      animation: conicBorderSweep 3.2s linear infinite;
+      z-index: -2;
+    }
+
+    @keyframes conicBorderSweep {
+      0% { transform: translate(-50%, -50%) rotate(0deg); }
+      100% { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+
+    /* Inner 1px mask background that expands smoothly on hover */
+    .btn-outline-conic::after {
+      content: '';
+      position: absolute;
+      inset: 1px;
+      background: #141720;
+      border-radius: 9999px;
+      z-index: -1;
+      transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    }
+
+    /* Inverted Hover Fill: Border expands smoothly to fill the entire button background */
+    .btn-outline-conic:hover::after {
+      background: linear-gradient(135deg, #D4AF37 0%, #FFB800 50%, #FF4500 100%);
+      opacity: 1;
+    }
+
+    .btn-outline-conic:hover {
+      color: #0F1115 !important;
+      font-weight: 800;
+      box-shadow: 0 0 25px rgba(212, 175, 55, 0.55), 0 4px 15px rgba(255, 69, 0, 0.3);
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .btn-outline-conic:active {
+      transform: translateY(1px) scale(0.96);
+    }
+
+    /* 5. Mobile Compatibility: Touch Ripple Effect */
+    .ripple-surface {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .touch-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.45) 0%, rgba(212, 175, 55, 0.35) 50%, transparent 80%);
+      transform: scale(0);
+      pointer-events: none;
+      animation: mobileTouchRipple 0.65s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+      z-index: 10;
+    }
+
+    @keyframes mobileTouchRipple {
+      0% {
+        transform: scale(0);
+        opacity: 0.9;
+      }
+      100% {
+        transform: scale(2);
+        opacity: 0;
+      }
+    }
+
+    /* Responsive Button Row Utilities */
+    @media (max-width: 640px) {
+      .btn-primary-liquid,
+      .btn-outline-conic {
+        padding: 0.6rem 0.9rem;
+        font-size: 0.78rem;
+      }
+    }
+
+    /* ==========================================================================
+       PRODUCT IMAGES ULTRA-LUXURY HOVER EFFECT (LIQUID GOLD SHEEN & 3D ZOOM DEPTH)
+       ========================================================================== */
+    .product-img-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      background: #0A0C10;
+      cursor: pointer;
+      isolation: isolate;
+      border: 1px solid rgba(42, 47, 61, 0.85);
+      transition: border-color 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+                  box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1), 
+                  transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Product image smooth transform and appetizing color grading on hover */
+    .product-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1);
+      transform-origin: center center;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), 
+                  filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, filter;
+    }
+
+    /* When user hovers over the card or directly on the image */
+    .product-card:hover .product-img-wrapper,
+    .product-img-wrapper:hover {
+      border-color: rgba(212, 175, 55, 0.85);
+      box-shadow: 0 14px 34px -6px rgba(0, 0, 0, 0.9), 
+                  0 0 28px rgba(212, 175, 55, 0.38),
+                  inset 0 0 20px rgba(212, 175, 55, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .product-card:hover .product-img,
+    .product-img-wrapper:hover .product-img {
+      transform: scale(1.1) translateY(-2px);
+      filter: brightness(1.09) contrast(1.08) saturate(1.18);
+    }
+
+    /* Diagonal Liquid Light Sheen Reflection sweep across dish photo on hover */
+    .product-img-wrapper::after {
+      content: '';
+      position: absolute;
+      top: -60%;
+      left: -170%;
+      width: 60%;
+      height: 220%;
+      background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.04) 20%,
+        rgba(255, 255, 255, 0.32) 50%,
+        rgba(212, 175, 55, 0.4) 75%,
+        transparent 100%
+      );
+      transform: rotate(25deg);
+      transition: left 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 5;
+      pointer-events: none;
+    }
+
+    .product-card:hover .product-img-wrapper::after,
+    .product-img-wrapper:hover::after {
+      left: 180%;
+    }
+
+    /* Floating quick view indicator badge on hover */
+    .product-img-hover-badge {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(15, 17, 21, 0.35) 0%, rgba(10, 12, 16, 0.65) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.92);
+      transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.32s ease;
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    .product-card:hover .product-img-hover-badge,
+    .product-img-wrapper:hover .product-img-hover-badge {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+    }
+
+    .product-img-hover-pill {
+      background: rgba(15, 17, 21, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(212, 175, 55, 0.85);
+      color: #FFB800;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.42rem 0.95rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.7), 0 0 16px rgba(212, 175, 55, 0.45);
+    }
+
+    /* Interactive response for card badge & rating when image or card is hovered */
+    .product-badge-float {
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .product-card:hover .product-badge-float {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(212, 175, 55, 0.5);
+      border-color: rgba(212, 175, 55, 0.9);
+    }
+
+    /* ==========================================================================
+       SEPARATED NAVIGATION CATEGORIES & STAFF PORTAL STYLES
+       ========================================================================== */
+    .nav-category-group {
+      background: rgba(18, 21, 28, 0.92);
+      border: 1px solid rgba(42, 47, 61, 0.9);
+      padding: 0.3rem 0.45rem;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-cat-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #A8A296;
+      border-radius: 9999px;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .nav-cat-pill:hover {
+      color: #FFFFFF;
+      background: rgba(212, 175, 55, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .nav-cat-pill.active {
+      color: #0F1115;
+      background: linear-gradient(135deg, #D4AF37 0%, #FFB800 100%);
+      font-weight: 800;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.45);
+    }
+
+    .nav-cat-pill.staff-badge {
+      background: rgba(255, 184, 0, 0.09);
+      border: 1px solid rgba(255, 184, 0, 0.32);
+      color: #FFB800;
+    }
+
+    .nav-cat-pill.staff-badge:hover {
+      background: linear-gradient(135deg, #FFB800 0%, #FF4500 100%);
+      color: #0F1115;
+      border-color: transparent;
+      box-shadow: 0 0 20px rgba(255, 184, 0, 0.5);
+    }
+
+    .nav-cat-divider {
+      width: 1px;
+      height: 14px;
+      background: rgba(42, 47, 61, 0.85);
+      margin: 0 0.1rem;
+    }
+
+    /* Staff Portal Tabs & KOT Tickets */
+    .staff-tab-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: 0.75rem;
+      color: #A8A296;
+      background: #141720;
+      border: 1px solid #2A2F3D;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .staff-tab-btn.active {
+      background: linear-gradient(135deg, #D4AF37 0%, #FFB800 100%);
+      color: #0F1115;
+      border-color: #D4AF37;
+      font-weight: 800;
+      box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+    }
+
+    .kot-ticket {
+      background: #141720;
+      border: 1px solid #2A2F3D;
+      border-radius: 1rem;
+      padding: 1rem;
+      transition: all 0.25s ease;
+    }
+
+    .kot-ticket:hover {
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 12, 16, 0.75);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 999;
+      display: none !important;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none !important;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-overlay.active {
+      display: flex !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+    }
+
+    .modal-content-box {
+      max-width: 480px;
+      width: 100%;
+      border-radius: 1.5rem;
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      pointer-events: auto;
+    }
+
+    .modal-overlay.active .modal-content-box {
+      transform: scale(1);
+    }
+
+    /* Cart Slide-Out Drawer */
+    #cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: rgba(18, 21, 28, 0.96);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-left: 1px solid var(--border-gold);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -15px 0 45px rgba(0, 0, 0, 0.7);
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    #cart-drawer.open {
+      transform: translateX(0);
+      pointer-events: auto !important;
+      visibility: visible !important;
+    }
+
+    /* Mobile Slide-Out Drawer */
+    #mobile-menu-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 80%;
+      max-width: 320px;
+      background: rgba(16, 19, 26, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-left: 1px solid var(--border-subtle);
+      z-index: 1000;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    #mobile-menu-drawer.open {
+      transform: translateX(0);
+      pointer-events: auto !important;
+      visibility: visible !important;
+    }
+
+    /* Ensure backdrops never block clicks when closed */
+    #cart-backdrop.opacity-0,
+    #mobile-drawer-backdrop.opacity-0 {
+      pointer-events: none !important;
+      visibility: hidden !important;
+    }
+
+    /* Live Marquee Animation */
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .animate-marquee {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 32s linear infinite;
+    }
+
+    .animate-marquee:hover {
+      animation-play-state: paused;
+    }
+
+    /* Tailwind utility replacements for pure standalone CSS */
+    .fixed { position: fixed; }
+    .absolute { position: absolute; }
+    .relative { position: relative; }
+    .inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+    .top-0 { top: 0; } .left-0 { left: 0; } .right-0 { right: 0; } .bottom-0 { bottom: 0; }
+    .z-10 { z-index: 10; } .z-20 { z-index: 20; } .z-40 { z-index: 40; } .z-50 { z-index: 50; }
+    .flex { display: flex; } .inline-flex { display: inline-flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; } .items-start { align-items: flex-start; } .items-end { align-items: flex-end; }
+    .justify-between { justify-content: space-between; } .justify-center { justify-content: center; }
+    .gap-1 { gap: 0.25rem; } .gap-2 { gap: 0.5rem; } .gap-3 { gap: 0.75rem; } .gap-4 { gap: 1rem; } .gap-6 { gap: 1.5rem; } .gap-8 { gap: 2rem; } .gap-10 { gap: 2.5rem; } .gap-12 { gap: 3rem; }
+    .grid { display: grid; }
+    .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+    .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    @media (min-width: 640px) {
+      .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sm\:block { display: block; }
+      .sm\:text-5xl { font-size: 3rem; line-height: 1; }
+      .sm\:text-base { font-size: 1rem; }
+    }
+    @media (min-width: 768px) {
+      .md\:flex { display: flex; }
+      .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .md\:flex-row { flex-direction: row; }
+      .md\:items-end { align-items: flex-end; }
+      .md\:w-80 { width: 20rem; }
+      .md\:inline { display: inline; }
+      .md\:text-right { text-align: right; }
+    }
+    @media (min-width: 1024px) {
+      .lg\:grid-cols-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+      .lg\:col-span-6 { grid-column: span 6 / span 6; }
+      .lg\:col-span-5 { grid-column: span 5 / span 5; }
+      .lg\:col-span-7 { grid-column: span 7 / span 7; }
+      .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .lg\:flex { display: flex; }
+      .lg\:hidden { display: none; }
+      .lg\:text-6xl { font-size: 3.75rem; line-height: 1; }
+    }
+    @media (min-width: 1280px) {
+      .xl\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+    .w-full { width: 100%; } .h-full { height: 100%; }
+    .max-w-7xl { max-width: 80rem; margin-left: auto; margin-right: auto; }
+    .max-w-xl { max-width: 36rem; } .max-w-2xl { max-width: 42rem; }
+    .p-1 { padding: 0.25rem; } .p-2 { padding: 0.5rem; } .p-3 { padding: 0.75rem; } .p-4 { padding: 1rem; } .p-5 { padding: 1.25rem; } .p-6 { padding: 1.5rem; }
+    .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; } .px-4 { padding-left: 1rem; padding-right: 1rem; } .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; } .px-7 { padding-left: 1.75rem; padding-right: 1.75rem; }
+    .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; } .py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; } .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; } .py-4 { padding-top: 1rem; padding-bottom: 1rem; } .py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; } .py-12 { padding-top: 3rem; padding-bottom: 3rem; } .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+    .pt-2 { padding-top: 0.5rem; } .pt-3 { padding-top: 0.75rem; } .pt-4 { padding-top: 1rem; } .pt-20 { padding-top: 5rem; } .pt-28 { padding-top: 7rem; }
+    .pb-2 { padding-bottom: 0.5rem; } .pb-4 { padding-bottom: 1rem; } .pb-20 { padding-bottom: 5rem; }
+    .mt-1 { margin-top: 0.25rem; } .mt-2 { margin-top: 0.5rem; } .mt-4 { margin-top: 1rem; } .mt-6 { margin-top: 1.5rem; } .mt-12 { margin-top: 3rem; } .mt-16 { margin-top: 4rem; }
+    .mb-2 { margin-bottom: 0.5rem; } .mb-3 { margin-bottom: 0.75rem; } .mb-4 { margin-bottom: 1rem; } .mb-6 { margin-bottom: 1.5rem; } .mb-10 { margin-bottom: 2.5rem; } .mb-12 { margin-bottom: 3rem; }
+    .rounded-full { border-radius: 9999px; } .rounded-md { border-radius: 0.375rem; } .rounded-xl { border-radius: 0.75rem; } .rounded-2xl { border-radius: 1rem; } .rounded-3xl { border-radius: 1.5rem; }
+    .overflow-hidden { overflow: hidden; }
+    .text-xs { font-size: 0.75rem; } .text-sm { font-size: 0.875rem; } .text-base { font-size: 1rem; } .text-lg { font-size: 1.125rem; } .text-xl { font-size: 1.25rem; } .text-2xl { font-size: 1.5rem; } .text-3xl { font-size: 1.875rem; }
+    .font-bold { font-weight: 700; } .font-black { font-weight: 900; } .uppercase { text-transform: uppercase; }
+    .tracking-wider { letter-spacing: 0.05em; } .tracking-widest { letter-spacing: 0.1em; }
+    .text-white { color: #FFFFFF; } .text-center { text-align: center; } .text-left { text-align: left; }
+    .border { border-width: 1px; } .border-t { border-top-width: 1px; } .border-b { border-bottom-width: 1px; }
+    .border-gold { border-color: rgba(212, 175, 55, 0.4); }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+    .w-auto { width: auto; } .max-h-12 { max-height: 3rem; } .max-h-9 { max-height: 2.25rem; } .object-contain { object-fit: contain; } .object-cover { object-fit: cover; }
+    .block { display: block; } .hidden { display: none; }
+    .shrink-0 { flex-shrink: 0; }
+    .cursor-pointer { cursor: pointer; }
+    .transition-all { transition-property: all; } .transition-colors { transition-property: color, background-color, border-color; } .transition-transform { transition-property: transform; }
+    .duration-300 { transition-duration: 300ms; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  </style>
+</head>
+<body class="ambient-glow-backdrop">
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" aria-live="polite"></div>
+
+  <!-- ==========================================================================
+       HEADER & GLASSMORPHIC NAVIGATION
+       ========================================================================== -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-surface border-b border-[#2A2F3D]/80 transition-all duration-300">
+    <div class="max-w-7xl px-4 sm:px-6 flex items-center justify-between gap-4" style="height: 5rem;">
+      
+      <!-- Brand Logo strictly preserved & wrapped in link to #hero -->
+      <a href="#hero" class="brand-logo-link flex items-center gap-3 shrink-0" aria-label="Karachi Bites Home">
+        <img 
+          src="/logo.png" 
+          alt="Karachi Bites Official Logo" 
+          class="max-h-12 w-auto object-contain block" 
+        />
+        <div class="hidden md:flex flex-col justify-center leading-tight">
+          <span class="font-royal font-black text-sm tracking-wider text-liquid-gold uppercase">
+            Karachi Bites
+          </span>
+          <span class="text-xs uppercase tracking-widest text-[#A8A296] font-bold" style="font-size: 9px;">
+            Royal Kitchen · Est. 2026
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Separated Navigation Categories -->
+      <nav class="hidden lg:flex items-center nav-category-group" aria-label="Main Navigation">
+        <a href="#hero" class="nav-cat-pill active" id="nav-pill-home">
+          <i data-lucide="home" style="width: 13px; height: 13px;"></i>
+          <span>Home</span>
+        </a>
+        <div class="nav-cat-divider"></div>
+        <a href="#menu" class="nav-cat-pill" id="nav-pill-menu">
+          <i data-lucide="utensils" style="width: 13px; height: 13px;"></i>
+          <span>Menu</span>
+        </a>
+        <div class="nav-cat-divider"></div>
+        <a href="#distance" class="nav-cat-pill" id="nav-pill-distance">
+          <i data-lucide="navigation" style="width: 13px; height: 13px;"></i>
+          <span>Distance</span>
+        </a>
+        <div class="nav-cat-divider"></div>
+        <a href="#about" class="nav-cat-pill" id="nav-pill-about">
+          <i data-lucide="book-open" style="width: 13px; height: 13px;"></i>
+          <span>About Us</span>
+        </a>
+        <div class="nav-cat-divider"></div>
+        <button id="btn-staff-portal" class="nav-cat-pill staff-badge" title="Open Kitchen Operations & Staff Portal">
+          <i data-lucide="shield-check" style="width: 13px; height: 13px; color: #FFB800;"></i>
+          <span>Staff Portal</span>
+        </button>
+      </nav>
+
+      <!-- Header Action Controls -->
+      <div class="flex items-center gap-3">
+        <!-- Active Branch Quick Dropdown -->
+        <div class="relative hidden sm:block">
+          <button id="header-branch-btn" class="pill-filter flex items-center gap-2 py-2 px-3 text-xs" title="Change active kitchen branch">
+            <i data-lucide="map-pin" style="width: 14px; height: 14px; color: #D4AF37;"></i>
+            <span id="header-branch-name">Clifton</span>
+            <span style="font-size: 10px; color: #A8A296;">(30m)</span>
+            <i data-lucide="chevron-down" style="width: 12px; height: 12px; color: #A8A296;"></i>
+          </button>
+        </div>
+
+        <!-- Sticky Cart Trigger Button -->
+        <a href="#cart" id="cart-btn-trigger" class="btn-primary-liquid py-2 px-4 text-xs font-bold ripple-surface" aria-label="View Shopping Cart">
+          <i data-lucide="shopping-bag" style="width: 16px; height: 16px;"></i>
+          <span>Bag (<span id="header-cart-count" class="font-mono-num font-black">0</span>)</span>
+          <span class="hidden md:inline font-mono-num" style="border-left: 1px solid rgba(15, 17, 21, 0.4); padding-left: 0.5rem;">Rs. <span id="header-cart-total">0</span></span>
+        </a>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="mobile-menu-toggle" class="lg:hidden btn-kinetic" aria-label="Toggle Menu">
+          <i data-lucide="menu" style="width: 20px; height: 20px; color: #D4AF37;"></i>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Slide-Out Drawer -->
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 bg-black/60 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="mobile-menu-drawer">
+    <div class="flex items-center justify-between pb-4 border-b" style="border-color: #2A2F3D;">
+      <div class="flex items-center gap-2">
+        <img src="/logo.png" alt="Logo" class="max-h-9 w-auto object-contain" />
+        <span class="font-royal font-bold text-xs text-liquid-gold">Karachi Bites</span>
+      </div>
+      <button id="mobile-drawer-close" class="btn-kinetic" aria-label="Close Menu">
+        <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+      </button>
+    </div>
+    
+    <nav class="flex flex-col gap-2.5 text-sm font-bold text-[#A8A296]">
+      <a href="#hero" class="mobile-nav-link hover:text-white transition-all py-2.5 px-3 rounded-xl hover:bg-[#181B22] flex items-center gap-3">
+        <i data-lucide="home" style="width: 17px; height: 17px; color: #D4AF37;"></i>
+        <span>Home</span>
+      </a>
+      <a href="#menu" class="mobile-nav-link hover:text-white transition-all py-2.5 px-3 rounded-xl hover:bg-[#181B22] flex items-center gap-3">
+        <i data-lucide="utensils" style="width: 17px; height: 17px; color: #D4AF37;"></i>
+        <span>Menu</span>
+      </a>
+      <a href="#distance" class="mobile-nav-link hover:text-white transition-all py-2.5 px-3 rounded-xl hover:bg-[#181B22] flex items-center gap-3">
+        <i data-lucide="navigation" style="width: 17px; height: 17px; color: #D4AF37;"></i>
+        <span>Distance & Delivery</span>
+      </a>
+      <a href="#about" class="mobile-nav-link hover:text-white transition-all py-2.5 px-3 rounded-xl hover:bg-[#181B22] flex items-center gap-3">
+        <i data-lucide="book-open" style="width: 17px; height: 17px; color: #D4AF37;"></i>
+        <span>About Us</span>
+      </a>
+      <button id="mobile-btn-staff-portal" class="mobile-nav-link text-left hover:text-white transition-all py-2.5 px-3 rounded-xl bg-[#FFB800]/10 border border-[#FFB800]/30 text-[#FFB800] flex items-center gap-3 w-full mt-1">
+        <i data-lucide="shield-check" style="width: 17px; height: 17px; color: #FFB800;"></i>
+        <span>Staff Portal</span>
+      </button>
+    </nav>
+
+    <div class="mt-auto pt-6 border-t border-[#2A2F3D] space-y-3 text-xs text-[#A8A296]">
+      <div class="flex items-center gap-2 text-white font-mono-num">
+        <i data-lucide="phone-call" style="width: 16px; height: 16px; color: #D4AF37;"></i>
+        <a href="tel:+923001234567" class="hover:text-[#D4AF37]">+92 300 1234567</a>
+      </div>
+      <div class="flex items-center gap-2 text-white">
+        <i data-lucide="mail" style="width: 16px; height: 16px; color: #D4AF37;"></i>
+        <a href="mailto:info@karachibites.pk" class="hover:text-[#D4AF37]">info@karachibites.pk</a>
+      </div>
+      <p style="font-size: 10px; color: #6E7480;">Flat delivery fee Rs. 150 across Clifton, Gulshan & Nazimabad.</p>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       HERO SECTION WITH 3D WEBGL SHOWCASE & HOTSPOTS
+       ========================================================================== -->
+  <section id="hero" class="relative pt-28 pb-20 overflow-hidden flex items-center" style="min-height: 88vh;">
+    <div class="max-w-7xl px-4 sm:px-6 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        
+        <!-- Left: Luxury Royal Obsidian & Liquid Gold Typography -->
+        <div class="lg:col-span-6 space-y-4 text-left z-10">
+          
+          <div class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-[#181B22] border border-gold">
+            <span class="w-2 h-2 rounded-full" style="background-color: #D4AF37; box-shadow: 0 0 10px #D4AF37;"></span>
+            <span class="text-xs font-black uppercase tracking-widest text-[#D4AF37]" style="font-size: 10px;">
+              Royal Heritage Dining Experience · Karachi 2026
+            </span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white" style="line-height: 1.1;">
+            Karachi's Royal
+            <span class="text-liquid-gold block mt-1">Liquid Gold Flavours</span>
+          </h1>
+
+          <p class="text-[#C5BDB0] text-sm sm:text-base leading-relaxed max-w-xl font-normal">
+            Slow-cooked in sealed terracotta handis, seared over charcoal pits, and tossed in smoking iron woks. Savor authentic Dum Biryani, succulent Shinwari Karahi, and melt-in-mouth Malai Boti delivered piping hot.
+          </p>
+
+          <!-- Primary & Secondary Interactive CTAs -->
+          <div class="pt-2 flex flex-wrap items-center gap-3">
+            <a href="#menu" class="btn-primary-liquid ripple-surface text-sm py-3 px-6">
+              <span>Explore Menu</span>
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </a>
+            <button id="hero-track-btn" class="btn-outline-conic ripple-surface text-sm py-3 px-6">
+              <i data-lucide="radar" style="width: 16px; height: 16px; color: #D4AF37;"></i>
+              <span>Live Order Tracker</span>
+            </button>
+          </div>
+
+          <!-- Branch Selection Pills -->
+          <div class="pt-3 space-y-2">
+            <div class="text-xs font-black uppercase tracking-wider text-[#A8A296]" style="font-size: 11px;">
+              Kitchen Dispatch Hub:
+            </div>
+            <div class="flex flex-wrap gap-2" id="hero-branch-pills">
+              <button class="pill-filter active" data-branch="clifton">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Clifton (30-40m)
+              </button>
+              <button class="pill-filter" data-branch="gulshan">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> Gulshan-e-Iqbal (35-45m)
+              </button>
+              <button class="pill-filter" data-branch="nazimabad">
+                <i data-lucide="map-pin" style="width: 14px; height: 14px;"></i> North Nazimabad (40-50m)
+              </button>
+            </div>
+          </div>
+
+          <!-- Micro Trust Proof Badges -->
+          <div class="pt-2 flex flex-wrap items-center gap-3 text-xs text-[#A8A296] font-semibold">
+            <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-[#181B22] border border-[#2A2F3D]">
+              <span class="w-2 h-2 rounded-full" style="background: #2E7D32;"></span> Flat Rs. 150 Delivery
+            </span>
+            <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-[#181B22] border border-[#2A2F3D]">
+              <i data-lucide="shield-check" style="width: 14px; height: 14px; color: #D4AF37;"></i> 100% Halal Prime Meat
+            </span>
+            <span class="inline-flex items-center gap-2 py-1 px-3 rounded-full bg-[#181B22] border border-[#2A2F3D]">
+              <i data-lucide="banknote" style="width: 14px; height: 14px; color: #FFB800;"></i> Cash on Delivery
+            </span>
+          </div>
+
+        </div>
+
+        <!-- Right: Authentic Karachi Culinary Showcase (No 3D canvas, crisp & appetizing) -->
+        <div class="lg:col-span-6 relative flex flex-col items-center justify-center">
+          
+          <!-- Glassmorphic Showcase Wrapper with Ambient Gold/Lava Glow -->
+          <div class="relative w-full rounded-3xl p-2 sm:p-3 shadow-2xl border border-gold/50 glass-surface" style="max-width: 540px; background: linear-gradient(135deg, rgba(255, 69, 0, 0.12), rgba(212, 175, 55, 0.2), rgba(15, 17, 21, 0.95));">
+            
+            <!-- Featured Dish Hero Visual Container -->
+            <div class="product-img-wrapper relative w-full h-80 sm:h-96 rounded-2xl overflow-hidden bg-[#0A0C10] border border-[#2A2F3D]/80 group">
+              
+              <!-- High-Resolution Feast Image -->
+              <img 
+                id="hero-showcase-img"
+                src="/images/karachi_hero_feast_1791536033852.jpg" 
+                alt="Karachi Royal Culinary Feast" 
+                class="product-img w-full h-full object-cover"
+              />
+
+              <!-- Ambient Gradient Vignette -->
+              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at center, transparent 35%, rgba(15, 17, 21, 0.85) 100%);"></div>
+
+              <!-- Top Left: Culinary Heritage Badge -->
+              <div class="absolute top-3 left-3 flex items-center gap-2">
+                <span id="hero-showcase-badge" class="py-1 px-3 rounded-full text-xs font-black uppercase tracking-wider text-[#0F1115] bg-gradient-to-r from-[#D4AF37] to-[#FFB800] shadow-lg flex items-center gap-1.5" style="font-size: 10px;">
+                  <i data-lucide="flame" style="width: 12px; height: 12px;"></i>
+                  <span>Royal Bestseller</span>
+                </span>
+                <span class="py-1 px-2.5 rounded-full text-xs font-bold text-white bg-[#0F1115]/85 border border-[#2A2F3D] backdrop-blur-md flex items-center gap-1 font-mono-num" style="font-size: 10px;">
+                  ★ <span id="hero-showcase-rating">4.9</span>
+                </span>
+              </div>
+
+              <!-- Top Right: Live Preparation Pill -->
+              <div class="absolute top-3 right-3 py-1 px-3 rounded-full text-xs font-semibold text-[#A8A296] bg-[#0F1115]/85 border border-gold/30 backdrop-blur-md flex items-center gap-1.5" style="font-size: 10px;">
+                <span class="w-2 h-2 rounded-full bg-[#FF4500] animate-pulse"></span>
+                <span id="hero-showcase-prep">Clay Handi Sealed</span>
+              </div>
+
+              <!-- Bottom Content Card: Dish Details & Quick Add -->
+              <div class="absolute bottom-3 left-3 right-3 p-3 sm:p-4 rounded-xl glass-surface-gold border border-gold/40 flex items-center justify-between gap-3 shadow-2xl backdrop-blur-xl">
+                <div class="min-w-0">
+                  <h3 id="hero-showcase-title" class="font-royal font-black text-sm sm:text-base text-white truncate text-liquid-gold">
+                    Karachi Royal Feast & Dum Biryani
+                  </h3>
+                  <p id="hero-showcase-desc" class="text-xs text-[#C5BDB0] truncate mt-0.5" style="font-size: 11px;">
+                    Slow-cooked saffron basmati, succulent chicken & charcoal boti
+                  </p>
+                  <div class="font-mono-num font-black text-sm text-[#FFB800] mt-1">
+                    <span id="hero-showcase-price">Rs. 890</span>
+                  </div>
+                </div>
+                <button id="hero-showcase-add-btn" class="btn-primary-liquid py-2 px-3 sm:px-4 text-xs font-bold shrink-0 ripple-surface" data-id="1">
+                  <i data-lucide="plus" style="width: 14px; height: 14px;"></i>
+                  <span>Add to Bag</span>
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- Dish Showcase Selector Tabs -->
+          <div class="mt-4 flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-full glass-surface border border-gold/50 z-10">
+            <button class="pill-filter active text-xs py-1.5 px-3.5" id="tab-dish-feast" data-dish="feast">
+              <i data-lucide="sparkles" style="width: 12px; height: 12px;"></i> Royal Feast
+            </button>
+            <button class="pill-filter text-xs py-1.5 px-3.5" id="tab-dish-biryani" data-dish="biryani">
+              Dum Biryani Handi
+            </button>
+            <button class="pill-filter text-xs py-1.5 px-3.5" id="tab-dish-karahi" data-dish="karahi">
+              Shinwari Karahi
+            </button>
+            <button class="pill-filter text-xs py-1.5 px-3.5" id="tab-dish-bbq" data-dish="bbq">
+              Charcoal Malai Boti
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       LIVE KITCHEN REEL / TICKER MARQUEE
+       ========================================================================== -->
+  <section class="py-4 border-t border-b overflow-hidden select-none" style="background: #12151D; border-color: #2A2F3D;">
+    <div class="animate-marquee flex items-center gap-8">
+      <div class="flex items-center gap-8 shrink-0">
+        <span class="text-xs uppercase font-black tracking-widest text-[#D4AF37] flex items-center gap-2">
+          <i data-lucide="sparkles" style="width: 14px; height: 14px; color: #D4AF37;"></i> Karachi Dum Biryani · Rs. 890
+        </span>
+        <span class="text-xs text-[#6E7480]">★ 4.9 (1.2k+ Reviews)</span>
+        <span class="text-xs uppercase font-black tracking-widest text-[#FF4500] flex items-center gap-2">
+          <i data-lucide="flame" style="width: 14px; height: 14px; color: #FF4500;"></i> Shinwari Mutton Karahi · Rs. 1,850
+        </span>
+        <span class="text-xs text-[#6E7480]">★ 5.0 (890+ Reviews)</span>
+        <span class="text-xs uppercase font-black tracking-widest text-[#FFB800] flex items-center gap-2">
+          <i data-lucide="utensils" style="width: 14px; height: 14px; color: #FFB800;"></i> Chicken Malai Boti · Rs. 850
+        </span>
+        <span class="text-xs text-[#6E7480]">★ 4.9 (2.1k+ Reviews)</span>
+        <span class="text-xs uppercase font-black tracking-widest text-[#D4AF37] flex items-center gap-2">
+          <i data-lucide="clock" style="width: 14px; height: 14px; color: #D4AF37;"></i> 30-Min Fast Thermal Dispatch
+        </span>
+        <span class="text-xs text-[#6E7480]">3 Active Hubs</span>
+      </div>
+      <div class="flex items-center gap-8 shrink-0">
+        <span class="text-xs uppercase font-black tracking-widest text-[#D4AF37] flex items-center gap-2">
+          <i data-lucide="sparkles" style="width: 14px; height: 14px; color: #D4AF37;"></i> Karachi Dum Biryani · Rs. 890
+        </span>
+        <span class="text-xs text-[#6E7480]">★ 4.9 (1.2k+ Reviews)</span>
+        <span class="text-xs uppercase font-black tracking-widest text-[#FF4500] flex items-center gap-2">
+          <i data-lucide="flame" style="width: 14px; height: 14px; color: #FF4500;"></i> Shinwari Mutton Karahi · Rs. 1,850
+        </span>
+        <span class="text-xs text-[#6E7480]">★ 5.0 (890+ Reviews)</span>
+        <span class="text-xs uppercase font-black tracking-widest text-[#FFB800] flex items-center gap-2">
+          <i data-lucide="utensils" style="width: 14px; height: 14px; color: #FFB800;"></i> Chicken Malai Boti · Rs. 850
+        </span>
+        <span class="text-xs text-[#6E7480]">★ 4.9 (2.1k+ Reviews)</span>
+        <span class="text-xs uppercase font-black tracking-widest text-[#D4AF37] flex items-center gap-2">
+          <i data-lucide="clock" style="width: 14px; height: 14px; color: #D4AF37;"></i> 30-Min Fast Thermal Dispatch
+        </span>
+        <span class="text-xs text-[#6E7480]">3 Active Hubs</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE MENU SECTION WITH CATEGORY FILTERING & SEARCH
+       ========================================================================== -->
+  <section id="menu" class="py-20 relative">
+    <div class="max-w-7xl px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+        <div class="space-y-2">
+          <span class="text-xs font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-1">
+            <i data-lucide="flame" style="width: 14px; height: 14px; color: #D4AF37;"></i>
+            Authentic Karahi, Biryani & Charcoal BBQ
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white">
+            Our Culinary <span class="text-liquid-gold">Collection</span>
+          </h2>
+          <p class="text-[#A8A296] text-sm max-w-lg leading-relaxed">
+            Prepared with single-source Himalayan rock salt, hand-milled spices, and prime halal meats cooked fresh to order.
+          </p>
+        </div>
+
+        <!-- Search Bar with Live Filter & Secondary Outline Search Button -->
+        <div class="w-full md:w-96 flex items-center gap-2">
+          <div class="relative flex-1">
+            <i data-lucide="search" style="width: 16px; height: 16px; color: #A8A296; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);"></i>
+            <input 
+              type="text" 
+              id="menu-search-input" 
+              placeholder="Search biryani, karahi, roll..." 
+              class="w-full py-2 px-4 rounded-full text-xs text-white placeholder-[#6E7480] focus:outline-none"
+              style="padding-left: 2.5rem; background: #181B22; border: 1px solid #2A2F3D;"
+            />
+          </div>
+          <button id="menu-search-btn" class="btn-outline-conic py-2 px-4 text-xs font-bold ripple-surface shrink-0">
+            <i data-lucide="search" style="width: 14px; height: 14px;"></i>
+            <span>Search</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Category Filter Pills (Magnetic Slide Fill) -->
+      <div class="flex flex-wrap items-center gap-2 mb-10 pb-2 border-b" style="border-color: rgba(42, 47, 61, 0.6);" id="category-filter-bar">
+        <button class="pill-filter active" data-cat="all">All Dishes</button>
+        <button class="pill-filter" data-cat="BBQ">Charcoal BBQ</button>
+        <button class="pill-filter" data-cat="Karahi">Shinwari Karahi</button>
+        <button class="pill-filter" data-cat="Rice">Dum Biryani</button>
+        <button class="pill-filter" data-cat="Breads">Tandoor Naan</button>
+        <button class="pill-filter" data-cat="Sides">Drinks & Raita</button>
+      </div>
+
+      <!-- Menu Grid Container -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="menu-grid-container">
+        <!-- Food Cards injected dynamically -->
+      </div>
+
+      <!-- Bottom Catering Banner -->
+      <div class="mt-16 p-6 sm:p-8 rounded-3xl glass-surface border border-gold flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-[#0F1115] border border-gold flex items-center justify-center shrink-0">
+            <i data-lucide="chef-hat" style="width: 26px; height: 26px; color: #D4AF37;"></i>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-white">Special Catering & Bulk Dawat Orders?</h3>
+            <p class="text-xs text-[#A8A296] mt-1">Custom deghs of Dum Biryani, Shinwari Karahi woks, and live BBQ setups across Karachi.</p>
+          </div>
+        </div>
+        <a href="tel:+923001234567" class="btn-outline-conic py-3 px-6 shrink-0">
+          <i data-lucide="phone-call" style="width: 16px; height: 16px;"></i> Call Catering Desk
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       OUR HERITAGE & BURNS ROAD STORY (#about)
+       ========================================================================== -->
+  <section id="about" class="py-20 relative bg-[#0C0E14] border-t border-[#2A2F3D]">
+    <div class="max-w-7xl px-4 sm:px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-6 relative">
+          <div class="product-img-wrapper relative rounded-3xl overflow-hidden border border-gold shadow-2xl group">
+            <img 
+              src="/images/karachi_hero_feast_1791536033852.jpg" 
+              alt="Karachi Traditional Kitchen Feast" 
+              class="product-img w-full object-cover"
+              style="height: 400px;"
+            />
+            <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);"></div>
+            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-2xl glass-surface border border-gold">
+              <div class="font-royal font-bold text-sm text-[#D4AF37]">Clay Handis & Glowing Embers</div>
+              <p class="text-xs text-[#C5BDB0] mt-1">Every recipe dates back generations, perfected in the historic food streets of Karachi.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-4 text-left">
+          <span class="text-xs font-black uppercase tracking-widest text-[#D4AF37]">Our Culinary Story</span>
+          <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+            Where Raw Smoke Meets <span class="text-liquid-gold">Refined Royalty</span>
+          </h2>
+          <p class="text-sm text-[#A8A296] leading-relaxed">
+            Founded with a singular passion: to elevate Karachi's beloved street flavours into an authentic, fine-dining home delivery experience. No artificial colours, no frozen patties, no compromises.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-4 pt-2">
+            <div class="p-4 rounded-2xl glass-surface border border-[#2A2F3D]">
+              <div class="text-2xl font-black text-[#D4AF37] font-mono-num">100%</div>
+              <div class="text-xs font-bold text-white mt-1">Fresh Daily Cuts</div>
+              <div class="text-xs text-[#A8A296] mt-0.5" style="font-size: 11px;">Prime mutton & hand-trimmed chicken.</div>
+            </div>
+            <div class="p-4 rounded-2xl glass-surface border border-[#2A2F3D]">
+              <div class="text-2xl font-black text-[#FF4500] font-mono-num">3 Hubs</div>
+              <div class="text-xs font-bold text-white mt-1">Fast Thermal Dispatch</div>
+              <div class="text-xs text-[#A8A296] mt-0.5" style="font-size: 11px;">Piping hot in thermal insulated bags.</div>
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <a href="#menu" class="btn-primary-liquid py-3 px-6 text-xs font-bold">
+              <span>Taste the Heritage</span>
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       DISTANCE & KITCHEN BRANCH HUBS SECTION (#distance & #branches)
+       ========================================================================== -->
+  <section id="distance" class="py-20 relative">
+    <div id="branches" class="absolute -top-10"></div>
+    <div class="max-w-7xl px-4 sm:px-6 text-left">
+      <div class="max-w-2xl mb-10 space-y-2">
+        <span class="text-xs font-black uppercase tracking-widest text-[#D4AF37] flex items-center gap-1.5">
+          <i data-lucide="navigation" style="width: 14px; height: 14px; color: #D4AF37;"></i>
+          City-Wide Distance & Kitchen Hubs
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white">
+          Delivery Distance & <span class="text-liquid-gold">Dispatch Hubs</span>
+        </h2>
+        <p class="text-sm text-[#A8A296]">
+          Calculate your exact distance from our 3 specialized kitchen hubs to ensure lightning-fast 30-min hot delivery.
+        </p>
+      </div>
+
+      <!-- Interactive Distance Calculator Widget -->
+      <div class="p-6 sm:p-8 rounded-3xl glass-surface-gold border border-gold/40 mb-10 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-5 space-y-2">
+            <h3 class="font-royal font-bold text-lg text-white text-liquid-gold">Live Karachi Distance Check</h3>
+            <p class="text-xs text-[#A8A296] leading-relaxed">
+              Select your neighborhood or delivery zone to calculate exact kilometers and live delivery ETA from Clifton, Gulshan, and North Nazimabad.
+            </p>
+            <div class="flex items-center gap-2 pt-2">
+              <span class="text-[10px] font-bold uppercase tracking-wider text-[#FFB800] bg-[#FFB800]/10 px-2.5 py-1 rounded-full border border-[#FFB800]/30">
+                ⚡ Hot Food Guarantee
+              </span>
+              <span class="text-[10px] text-[#A8A296]">Flat Rs. 150 Delivery</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 flex flex-col sm:flex-row items-center gap-3">
+            <div class="relative w-full">
+              <i data-lucide="map-pin" style="width: 16px; height: 16px; color: #D4AF37; position: absolute; left: 16px; top: 50%; transform: translateY(-50%);"></i>
+              <select id="distance-area-select" class="w-full py-3 px-4 rounded-xl text-xs text-white bg-[#141720] border border-[#2A2F3D] focus:border-gold focus:outline-none cursor-pointer" style="padding-left: 2.75rem;">
+                <option value="clifton" selected>Clifton (Block 1 - 9, Boat Basin)</option>
+                <option value="dha">DHA / Defence (Phase 1 to 8, Creek Vistas)</option>
+                <option value="saddar">Saddar / Burns Road / Civil Lines</option>
+                <option value="pechs">PECHS & Bahadurabad (Tariq Road)</option>
+                <option value="gulshan">Gulshan-e-Iqbal (Blocks 1 - 19, University Rd)</option>
+                <option value="johar">Gulistan-e-Johar & KDA Scheme</option>
+                <option value="nazimabad">North Nazimabad (Blocks A - T, Hydri)</option>
+                <option value="fbarea">Federal B Area & Water Pump</option>
+                <option value="malir">Malir Cantt & Model Colony</option>
+                <option value="scheme33">Scheme 33 / Safoora Chowrangi</option>
+              </select>
+            </div>
+            <button id="btn-calc-distance" class="btn-primary-liquid w-full sm:w-auto py-3 px-6 text-xs font-bold whitespace-nowrap shrink-0">
+              <i data-lucide="navigation-2" style="width: 14px; height: 14px;"></i>
+              <span>Check Distance</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Calculated Live Distance Bar -->
+        <div id="distance-result-banner" class="mt-6 pt-5 border-t border-[#2A2F3D] grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <div id="dist-box-clifton" class="p-3.5 rounded-xl bg-[#141720] border border-gold/60 flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-[#A8A296] uppercase font-bold block">Clifton Hub Distance</span>
+              <span id="dist-val-clifton" class="text-base font-black font-mono-num text-[#D4AF37]">1.2 km</span>
+            </div>
+            <span id="dist-tag-clifton" class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">NEAREST (20m)</span>
+          </div>
+
+          <div id="dist-box-gulshan" class="p-3.5 rounded-xl bg-[#141720] border border-[#2A2F3D] flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-[#A8A296] uppercase font-bold block">Gulshan Hub Distance</span>
+              <span id="dist-val-gulshan" class="text-base font-black font-mono-num text-white">12.5 km</span>
+            </div>
+            <span id="dist-tag-gulshan" class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#2A2F3D] text-[#A8A296]">45m ETA</span>
+          </div>
+
+          <div id="dist-box-nazimabad" class="p-3.5 rounded-xl bg-[#141720] border border-[#2A2F3D] flex items-center justify-between">
+            <div>
+              <span class="text-[10px] text-[#A8A296] uppercase font-bold block">Nazimabad Hub Distance</span>
+              <span id="dist-val-nazimabad" class="text-base font-black font-mono-num text-white">16.0 km</span>
+            </div>
+            <span id="dist-tag-nazimabad" class="text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#2A2F3D] text-[#A8A296]">55m ETA</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Clifton Branch -->
+        <div class="p-6 rounded-3xl glass-surface border border-gold hover:border-[#FF4500] transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="p-2 rounded-2xl bg-[#0F1115] border border-gold text-[#D4AF37]">
+              <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+            </span>
+            <span class="text-xs font-mono-num font-bold text-[#2E7D32] px-2 py-1 rounded-full border border-[#2E7D32]/30" style="background: rgba(46, 125, 50, 0.1);">
+              Open · 12 PM - 3 AM
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Clifton Hub</h3>
+          <p class="text-xs text-[#A8A296] mt-1">Block 4, Boat Basin Food Street, Clifton, Karachi</p>
+          <div class="mt-4 pt-4 border-t border-[#2A2F3D] flex items-center justify-between text-xs">
+            <span class="text-[#6E7480]">Delivery: 30-40 min</span>
+            <a href="tel:+923001234567" class="text-[#D4AF37] font-bold">0300-1234567</a>
+          </div>
+        </div>
+
+        <!-- Gulshan-e-Iqbal Branch -->
+        <div class="p-6 rounded-3xl glass-surface border border-[#2A2F3D] hover:border-gold transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="p-2 rounded-2xl bg-[#0F1115] border border-[#2A2F3D] text-[#D4AF37]">
+              <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+            </span>
+            <span class="text-xs font-mono-num font-bold text-[#2E7D32] px-2 py-1 rounded-full border border-[#2E7D32]/30" style="background: rgba(46, 125, 50, 0.1);">
+              Open · 12 PM - 3 AM
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Gulshan Hub</h3>
+          <p class="text-xs text-[#A8A296] mt-1">Block 13-B, Main University Road, Gulshan-e-Iqbal, Karachi</p>
+          <div class="mt-4 pt-4 border-t border-[#2A2F3D] flex items-center justify-between text-xs">
+            <span class="text-[#6E7480]">Delivery: 35-45 min</span>
+            <a href="tel:+923001234567" class="text-[#D4AF37] font-bold">0300-1234567</a>
+          </div>
+        </div>
+
+        <!-- North Nazimabad Branch -->
+        <div class="p-6 rounded-3xl glass-surface border border-[#2A2F3D] hover:border-gold transition-all">
+          <div class="flex items-center justify-between mb-4">
+            <span class="p-2 rounded-2xl bg-[#0F1115] border border-[#2A2F3D] text-[#D4AF37]">
+              <i data-lucide="map-pin" style="width: 20px; height: 20px;"></i>
+            </span>
+            <span class="text-xs font-mono-num font-bold text-[#2E7D32] px-2 py-1 rounded-full border border-[#2E7D32]/30" style="background: rgba(46, 125, 50, 0.1);">
+              Open · 12 PM - 3 AM
+            </span>
+          </div>
+          <h3 class="text-xl font-bold text-white">North Nazimabad Hub</h3>
+          <p class="text-xs text-[#A8A296] mt-1">Block H, Hydri Market, North Nazimabad, Karachi</p>
+          <div class="mt-4 pt-4 border-t border-[#2A2F3D] flex items-center justify-between text-xs">
+            <span class="text-[#6E7480]">Delivery: 40-50 min</span>
+            <a href="tel:+923001234567" class="text-[#D4AF37] font-bold">0300-1234567</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACT & CATERING SECTION (#contact)
+       ========================================================================== -->
+  <section id="contact" class="py-20 relative bg-[#0C0E14] border-t border-[#2A2F3D]">
+    <div class="max-w-7xl px-4 sm:px-6 text-left">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <div class="lg:col-span-5 space-y-4">
+          <span class="text-xs font-black uppercase tracking-widest text-[#D4AF37]">Get In Touch</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white">
+            Direct Line & <span class="text-liquid-gold">Customer Support</span>
+          </h2>
+          <p class="text-sm text-[#A8A296] leading-relaxed">
+            Have a question about an ongoing order, corporate dawat catering, or franchise inquiries? Reach our operations desk 24/7.
+          </p>
+
+          <div class="space-y-4 pt-3">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#181B22] border border-gold flex items-center justify-center text-[#D4AF37]">
+                <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="text-xs text-[#A8A296] uppercase font-bold" style="font-size: 10px;">Phone & WhatsApp</div>
+                <a href="tel:+923001234567" class="text-sm font-bold text-white hover:text-[#D4AF37] transition-colors font-mono-num">
+                  +92 300 1234567
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full bg-[#181B22] border border-gold flex items-center justify-center text-[#D4AF37]">
+                <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+              </div>
+              <div>
+                <div class="text-xs text-[#A8A296] uppercase font-bold" style="font-size: 10px;">Official Email</div>
+                <a href="mailto:info@karachibites.pk" class="text-sm font-bold text-white hover:text-[#D4AF37] transition-colors font-mono-num">
+                  info@karachibites.pk
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <form id="contact-form" class="p-6 sm:p-8 rounded-3xl glass-surface border border-[#2A2F3D] space-y-4">
+            <h3 class="text-lg font-bold text-white">Send a Direct Message</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Full Name</label>
+                <input type="text" required placeholder="Saad Asif" class="w-full p-3 rounded-xl bg-[#0F1115] border border-[#2A2F3D] text-xs text-white placeholder-[#6E7480] focus:outline-none" style="border: 1px solid #2A2F3D;" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Contact Phone</label>
+                <input type="tel" required placeholder="0300 1234567" class="w-full p-3 rounded-xl bg-[#0F1115] border border-[#2A2F3D] text-xs text-white placeholder-[#6E7480] focus:outline-none" style="border: 1px solid #2A2F3D;" />
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Message / Catering Details</label>
+              <textarea rows="3" required placeholder="Details about your catering order or feedback..." class="w-full p-3 rounded-xl bg-[#0F1115] border border-[#2A2F3D] text-xs text-white placeholder-[#6E7480] focus:outline-none" style="border: 1px solid #2A2F3D;"></textarea>
+            </div>
+            <button type="submit" class="btn-primary-liquid w-full py-3 text-xs font-bold">
+              <span>Send Message</span>
+              <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PERSISTENT CART DRAWER & CHECKOUT
+       ========================================================================== -->
+  <div id="cart-backdrop" class="fixed inset-0 bg-black/60 z-40 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+  <aside id="cart-drawer">
+    <!-- Cart Header -->
+    <div class="p-5 border-b border-[#2A2F3D] flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <i data-lucide="shopping-bag" style="width: 20px; height: 20px; color: #D4AF37;"></i>
+        <h3 class="font-royal font-bold text-base text-white">Your Culinary Bag</h3>
+      </div>
+      <button id="cart-close-btn" class="btn-kinetic" aria-label="Close Bag">
+        <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+      </button>
+    </div>
+
+    <!-- Cart Items Scroll List -->
+    <div id="cart-items-container" class="overflow-y-auto p-5 space-y-3" style="flex: 1;">
+      <!-- Cart items injected dynamically -->
+    </div>
+
+    <!-- Cart Summary Footer -->
+    <div class="p-5 border-t border-[#2A2F3D] space-y-3" style="background: #141720;">
+      <div class="flex items-center justify-between text-xs text-[#A8A296]">
+        <span>Subtotal</span>
+        <span class="font-mono-num font-bold text-white">Rs. <span id="cart-subtotal-val">0</span></span>
+      </div>
+      <div class="flex items-center justify-between text-xs text-[#A8A296]">
+        <span>Thermal Bag Delivery</span>
+        <span class="font-mono-num font-bold text-[#D4AF37]">Rs. <span id="cart-delivery-val">150</span></span>
+      </div>
+      <div class="flex items-center justify-between text-base font-black text-white pt-2 border-t border-[#2A2F3D]">
+        <span>Grand Total</span>
+        <span class="font-mono-num text-[#FFB800]">Rs. <span id="cart-grand-total-val">0</span></span>
+      </div>
+      <button id="cart-checkout-btn" class="btn-primary-liquid w-full py-3 text-xs font-black uppercase tracking-wider ripple-surface">
+        <span>Checkout Now</span>
+        <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ==========================================================================
+       CHECKOUT MODAL
+       ========================================================================== -->
+  <div id="checkout-modal" class="modal-overlay">
+    <div class="modal-content-box p-6 sm:p-8 glass-surface-gold text-left space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-[#2A2F3D]">
+        <h3 class="font-royal font-black text-lg text-white">Complete Delivery Order</h3>
+        <button id="checkout-close-btn" class="btn-kinetic"><i data-lucide="x" style="width: 16px; height: 16px;"></i></button>
+      </div>
+
+      <form id="checkout-form" class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Customer Name</label>
+          <input type="text" id="order-name" required placeholder="Saad Asif" class="w-full p-2.5 rounded-xl bg-[#0F1115] text-xs text-white placeholder-[#6E7480] focus:outline-none" style="border: 1px solid #2A2F3D;" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Phone Number (+92)</label>
+          <input type="tel" id="order-phone" required placeholder="0300 1234567" class="w-full p-2.5 rounded-xl bg-[#0F1115] text-xs text-white placeholder-[#6E7480] focus:outline-none" style="border: 1px solid #2A2F3D;" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Delivery Address (Karachi)</label>
+          <textarea id="order-address" required rows="2" placeholder="House/Flat #, Street, Block, Clifton / Gulshan..." class="w-full p-2.5 rounded-xl bg-[#0F1115] text-xs text-white placeholder-[#6E7480] focus:outline-none" style="border: 1px solid #2A2F3D;"></textarea>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Kitchen Hub</label>
+            <select id="order-hub" class="w-full p-2.5 rounded-xl bg-[#0F1115] text-xs text-white focus:outline-none" style="border: 1px solid #2A2F3D;">
+              <option value="clifton">Clifton Hub</option>
+              <option value="gulshan">Gulshan Hub</option>
+              <option value="nazimabad">North Nazimabad</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-[#A8A296] uppercase mb-1" style="font-size: 11px;">Payment</label>
+            <select id="order-payment" class="w-full p-2.5 rounded-xl bg-[#0F1115] text-xs text-white focus:outline-none" style="border: 1px solid #2A2F3D;">
+              <option value="cod">Cash on Delivery</option>
+              <option value="card">Debit/Credit Card</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-[#2A2F3D] flex items-center justify-between text-xs">
+          <span class="text-[#A8A296]">Total Payable:</span>
+          <span class="font-mono-num font-black text-lg text-[#FFB800]">Rs. <span id="checkout-total-display">0</span></span>
+        </div>
+
+        <button type="submit" class="btn-primary-liquid w-full py-3 text-xs font-black uppercase tracking-wider">
+          <span>Checkout Now</span>
+          <i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i>
+        </button>
+        <button id="checkout-cancel-btn" type="button" class="btn-outline-conic w-full py-2.5 text-xs font-semibold">
+          <span>Close</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CUSTOM 404 DISH OVERLAY MODAL
+       ========================================================================== -->
+    <!-- ==========================================================================
+       DISH DETAILS MODAL (SECONDARY OUTLINE "CLOSE" & PRIMARY CTA "ADD TO CART")
+       ========================================================================== -->
+  <div id="dish-modal" class="modal-overlay">
+    <div class="modal-content-box p-6 sm:p-8 glass-surface-gold text-left space-y-4 max-w-lg">
+      <div class="flex items-center justify-between pb-3 border-b border-[#2A2F3D]">
+        <div class="flex items-center gap-2">
+          <span class="text-xs uppercase tracking-widest text-[#D4AF37] font-black" id="dish-modal-cat">Royal Desi</span>
+          <span class="text-xs text-[#6E7480]">·</span>
+          <span class="text-xs text-[#FFB800] font-bold" id="dish-modal-badge">Bestseller</span>
+        </div>
+        <button id="dish-modal-x-btn" class="btn-kinetic" aria-label="Close Dish Details">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+
+      <div class="product-img-wrapper relative h-56 rounded-2xl overflow-hidden bg-[#0A0C10] border border-[#2A2F3D] group">
+        <img id="dish-modal-img" src="" alt="Dish Preview" class="product-img w-full h-full object-cover" />
+        <div class="absolute bottom-3 left-3 bg-[#0F1115]/90 border border-gold/40 px-3 py-1 rounded-full text-xs font-mono-num font-black text-[#FFB800]">
+          <span id="dish-modal-price">Rs. 890</span>
+        </div>
+        <div class="absolute bottom-3 right-3 bg-[#0F1115]/90 px-3 py-1 rounded-full text-xs font-bold text-[#FFB800] flex items-center gap-1">
+          <span id="dish-modal-rating">★ 4.9</span>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="font-royal font-black text-xl text-white text-liquid-gold" id="dish-modal-title">
+          Karachi Chicken Dum Biryani
+        </h3>
+        <p class="text-xs text-[#C5BDB0] mt-2 leading-relaxed" id="dish-modal-desc">
+          Aged basmati rice slow-steamed with farm-fresh chicken, golden potatoes, dried plums, and house spices.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-3 py-2 border-y border-[#2A2F3D] text-xs">
+        <div>
+          <span class="text-[#6E7480] uppercase tracking-wider block text-[10px]">Serving Portion</span>
+          <span class="text-white font-semibold" id="dish-modal-portion">Double Portion (Serves 1-2)</span>
+        </div>
+        <div>
+          <span class="text-[#6E7480] uppercase tracking-wider block text-[10px]">Authentic Prep</span>
+          <span class="text-[#D4AF37] font-semibold" id="dish-modal-prep">Slow Clay Handi Cooked</span>
+        </div>
+      </div>
+
+      <div class="pt-2 flex items-center gap-3">
+        <button id="dish-modal-close-btn" class="btn-outline-conic flex-1 py-3 text-xs font-bold ripple-surface">
+          <span>Close</span>
+        </button>
+        <button id="dish-modal-add-btn" class="btn-primary-liquid flex-1 py-3 text-xs font-bold ripple-surface">
+          <i data-lucide="plus" style="width: 15px; height: 15px;"></i>
+          <span>Add to Cart</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-404" class="modal-overlay">
+    <div class="modal-content-box p-6 sm:p-8 glass-surface-gold text-center space-y-4">
+      <div class="w-14 h-14 rounded-full bg-[#181B22] border border-[#FF4500] text-[#FF4500] flex items-center justify-center mx-auto shadow-lg">
+        <i data-lucide="alert-circle" style="width: 28px; height: 28px;"></i>
+      </div>
+      <h3 class="font-royal font-black text-xl text-white">Dish Not Found</h3>
+      <p class="text-xs text-[#A8A296] leading-relaxed">
+        We couldn't find a dish matching your search query. Try searching for <span class="text-[#D4AF37] font-bold">Biryani</span>, <span class="text-[#D4AF37] font-bold">Karahi</span>, or <span class="text-[#D4AF37] font-bold">Malai Boti</span>.
+      </p>
+      <div class="pt-2 flex flex-col gap-2">
+        <button id="btn-reset-menu" class="btn-primary-liquid w-full py-3 text-xs font-bold">
+          <span>Return to Full Menu</span>
+        </button>
+        <button id="btn-close-404" class="btn-outline-conic w-full py-2.5 text-xs font-semibold">
+          <span>Close Window</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       KITCHEN OPERATIONS & STAFF PORTAL MODAL
+       ========================================================================== -->
+  <div id="modal-staff-portal" class="modal-overlay">
+    <div class="modal-content-box p-6 sm:p-8 glass-surface-gold text-left space-y-5 max-w-3xl max-h-[90vh] overflow-y-auto">
+      
+      <!-- Staff Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-[#2A2F3D]">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-[#141720] border border-gold flex items-center justify-center text-[#D4AF37]">
+            <i data-lucide="shield-check" style="width: 22px; height: 22px;"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <h3 class="font-royal font-black text-base sm:text-lg text-white text-liquid-gold">
+                Staff & Kitchen Operations Portal
+              </h3>
+              <span class="py-0.5 px-2 rounded-full text-[9px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                Live Sync
+              </span>
+            </div>
+            <p class="text-xs text-[#A8A296] mt-0.5">
+              Kitchen Display System (KDS) · Karachi Central Dispatch Desk
+            </p>
+          </div>
+        </div>
+        <button id="btn-close-staff-portal" class="btn-kinetic" aria-label="Close Staff Portal">
+          <i data-lucide="x" style="width: 18px; height: 18px;"></i>
+        </button>
+      </div>
+
+      <!-- Staff Profile & Shift Status Strip -->
+      <div class="p-3.5 rounded-2xl bg-[#141720] border border-[#2A2F3D] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4AF37] to-[#FF4500] text-[#0F1115] font-black flex items-center justify-center font-mono text-xs">
+            UA
+          </div>
+          <div>
+            <span class="text-white font-bold block">Ustad Arshad (Executive Chef)</span>
+            <span class="text-[#A8A296] text-[10px]">Active Shift: Evening Peak (12 PM - 3 AM) · Clifton Hub #01</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[10px] text-[#A8A296]">Duty Status:</span>
+          <span id="staff-duty-badge" class="py-1 px-3 rounded-full text-[10px] font-bold bg-[#2E7D32]/20 text-[#2E7D32] border border-[#2E7D32]/40">
+            ● Clocked In
+          </span>
+          <button id="btn-toggle-clock" class="text-[10px] font-bold text-[#D4AF37] underline hover:text-white ml-1">
+            Toggle Clock
+          </button>
+        </div>
+      </div>
+
+      <!-- Staff Tab Navigation -->
+      <div class="flex items-center gap-2 border-b border-[#2A2F3D] pb-2">
+        <button class="staff-tab-btn active" data-tab="kot">
+          <i data-lucide="clipboard-list" style="width: 13px; height: 13px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>
+          Live Kitchen Tickets (KOT)
+        </button>
+        <button class="staff-tab-btn" data-tab="inventory">
+          <i data-lucide="boxes" style="width: 13px; height: 13px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>
+          Inventory & Stocks
+        </button>
+        <button class="staff-tab-btn" data-tab="crew">
+          <i data-lucide="users" style="width: 13px; height: 13px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i>
+          Staff On Duty
+        </button>
+      </div>
+
+      <!-- Tab Content 1: Live Kitchen Order Tickets -->
+      <div id="staff-tab-kot" class="space-y-3">
+        <div class="flex items-center justify-between text-xs text-[#A8A296]">
+          <span>Active Incoming Kitchen Orders: <b class="text-white" id="kot-order-count">3</b></span>
+          <span class="text-[11px] text-[#D4AF37]">Click status button to progress kitchen order</span>
+        </div>
+
+        <!-- Ticket 1 -->
+        <div class="kot-ticket" id="kot-ticket-1">
+          <div class="flex items-center justify-between pb-2 border-b border-[#2A2F3D]">
+            <div class="flex items-center gap-2">
+              <span class="font-mono-num font-black text-xs text-[#FFB800]">#KB-9041</span>
+              <span class="text-[10px] text-[#A8A296]">· Table/Dispatch: Clifton Hub</span>
+            </div>
+            <span class="text-[10px] font-mono-num text-[#A8A296]">12 mins ago</span>
+          </div>
+          <div class="py-2.5 text-xs text-white space-y-1">
+            <div class="font-bold">2x Karachi Chicken Dum Biryani Handi (Double)</div>
+            <div class="font-bold">1x Shinwari Mutton Karahi (Half Kg)</div>
+            <div class="text-[11px] text-[#FFB800]/90 italic">Note: Extra dried plums in Dum, spicy black pepper in Karahi</div>
+          </div>
+          <div class="pt-2 border-t border-[#2A2F3D] flex items-center justify-between">
+            <span class="kot-status-badge text-[10px] font-bold py-1 px-2.5 rounded-full bg-amber-500/20 text-amber-400 border border-amber-500/30">
+              🔥 Simmering in Handi
+            </span>
+            <button class="kot-next-btn btn-primary-liquid py-1.5 px-3 text-[11px] font-bold" data-ticket="1">
+              <span>Advance: Ready for Dispatch</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ticket 2 -->
+        <div class="kot-ticket" id="kot-ticket-2">
+          <div class="flex items-center justify-between pb-2 border-b border-[#2A2F3D]">
+            <div class="flex items-center gap-2">
+              <span class="font-mono-num font-black text-xs text-[#FFB800]">#KB-9042</span>
+              <span class="text-[10px] text-[#A8A296]">· Delivery: DHA Phase 6</span>
+            </div>
+            <span class="text-[10px] font-mono-num text-[#A8A296]">6 mins ago</span>
+          </div>
+          <div class="py-2.5 text-xs text-white space-y-1">
+            <div class="font-bold">2x Chicken Malai Boti Skewers</div>
+            <div class="font-bold">4x Tandoori Garlic Naan Basket</div>
+            <div class="font-bold">2x Zeera Raita & Fresh Salad</div>
+          </div>
+          <div class="pt-2 border-t border-[#2A2F3D] flex items-center justify-between">
+            <span class="kot-status-badge text-[10px] font-bold py-1 px-2.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
+              ⏱ Charcoal Pit Seared
+            </span>
+            <button class="kot-next-btn btn-primary-liquid py-1.5 px-3 text-[11px] font-bold" data-ticket="2">
+              <span>Advance: Assign to Rider</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Ticket 3 -->
+        <div class="kot-ticket" id="kot-ticket-3">
+          <div class="flex items-center justify-between pb-2 border-b border-[#2A2F3D]">
+            <div class="flex items-center gap-2">
+              <span class="font-mono-num font-black text-xs text-[#FFB800]">#KB-9043</span>
+              <span class="text-[10px] text-[#A8A296]">· Express Delivery: Boat Basin</span>
+            </div>
+            <span class="text-[10px] font-mono-num text-[#A8A296]">Just now</span>
+          </div>
+          <div class="py-2.5 text-xs text-white space-y-1">
+            <div class="font-bold">3x Zinger Paratha Roll (Jumbo)</div>
+            <div class="font-bold">3x Chilled Pakola Soda Can</div>
+          </div>
+          <div class="pt-2 border-t border-[#2A2F3D] flex items-center justify-between">
+            <span class="kot-status-badge text-[10px] font-bold py-1 px-2.5 rounded-full bg-purple-500/20 text-purple-400 border border-purple-500/30">
+              ⚡ Order In Kitchen Queue
+            </span>
+            <button class="kot-next-btn btn-primary-liquid py-1.5 px-3 text-[11px] font-bold" data-ticket="3">
+              <span>Advance: Start Cooking</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab Content 2: Inventory & Stocks -->
+      <div id="staff-tab-inventory" class="space-y-3 hidden">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="p-3 rounded-xl bg-[#141720] border border-[#2A2F3D]">
+            <div class="flex items-center justify-between text-xs font-bold text-white mb-1.5">
+              <span>Aged Saffron Basmati</span>
+              <span class="text-[#D4AF37]">140 kg / 150 kg (93%)</span>
+            </div>
+            <div class="w-full bg-[#0A0C10] h-2 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-[#D4AF37] to-emerald-400 h-full rounded-full" style="width: 93%;"></div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141720] border border-[#2A2F3D]">
+            <div class="flex items-center justify-between text-xs font-bold text-white mb-1.5">
+              <span>Shinwari Mutton Loins</span>
+              <span class="text-[#FFB800]">28 kg / 40 kg (70%)</span>
+            </div>
+            <div class="w-full bg-[#0A0C10] h-2 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-[#FFB800] to-amber-500 h-full rounded-full" style="width: 70%;"></div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141720] border border-[#2A2F3D]">
+            <div class="flex items-center justify-between text-xs font-bold text-white mb-1.5">
+              <span>Hardwood Charcoal Briquettes</span>
+              <span class="text-white">85 kg / 100 kg (85%)</span>
+            </div>
+            <div class="w-full bg-[#0A0C10] h-2 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-[#D4AF37] to-[#FF4500] h-full rounded-full" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141720] border border-[#2A2F3D]">
+            <div class="flex items-center justify-between text-xs font-bold text-white mb-1.5">
+              <span>Pure Desi Cow Ghee</span>
+              <span class="text-emerald-400">34 kg / 50 kg (68%)</span>
+            </div>
+            <div class="w-full bg-[#0A0C10] h-2 rounded-full overflow-hidden">
+              <div class="bg-gradient-to-r from-[#D4AF37] to-emerald-400 h-full rounded-full" style="width: 68%;"></div>
+            </div>
+          </div>
+        </div>
+        <button id="btn-request-restock" class="btn-outline-conic w-full py-2.5 text-xs font-bold text-center justify-center">
+          <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i>
+          <span>Request Hub Restock Voucher</span>
+        </button>
+      </div>
+
+      <!-- Tab Content 3: Staff Crew Roster -->
+      <div id="staff-tab-crew" class="space-y-3 hidden">
+        <div class="space-y-2">
+          <div class="p-3 rounded-xl bg-[#141720] border border-gold/40 flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center">UA</div>
+              <div>
+                <span class="text-white font-bold block">Ustad Arshad</span>
+                <span class="text-[10px] text-[#A8A296]">Lead Dum Biryani Master · Clocked in 11:45 AM</span>
+              </div>
+            </div>
+            <span class="py-0.5 px-2.5 rounded-full text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">On Duty</span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141720] border border-[#2A2F3D] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center">TK</div>
+              <div>
+                <span class="text-white font-bold block">Tariq Khan</span>
+                <span class="text-[10px] text-[#A8A296]">Shinwari Karahi Pitmaster · Clocked in 12:00 PM</span>
+              </div>
+            </div>
+            <span class="py-0.5 px-2.5 rounded-full text-[9px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">On Duty</span>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#141720] border border-[#2A2F3D] flex items-center justify-between text-xs">
+            <div class="flex items-center gap-3">
+              <div class="w-8 h-8 rounded-full bg-blue-500/20 text-blue-400 font-bold flex items-center justify-center">ZR</div>
+              <div>
+                <span class="text-white font-bold block">Zeeshan Rider</span>
+                <span class="text-[10px] text-[#A8A296]">Express Courier #04 · On Route with Order #KB-9039</span>
+              </div>
+            </div>
+            <span class="py-0.5 px-2.5 rounded-full text-[9px] font-bold bg-blue-500/20 text-blue-400 border border-blue-500/30">Dispatched</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-2 border-t border-[#2A2F3D] flex items-center justify-between text-xs">
+        <span class="text-[10px] text-[#6E7480]">Karachi Bites Kitchen Operations Portal v2.4</span>
+        <button id="btn-close-staff-portal-footer" class="btn-outline-conic py-2 px-4 text-xs font-semibold">
+          <span>Exit Portal</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER & MASSIVE ULTRA-LUXURY WATERMARK SECTION
+       ========================================================================== -->
+  <footer class="relative py-20 sm:py-24 bg-[#0A0C10] border-t border-[#2A2F3D] text-xs text-[#A8A296] overflow-x-hidden overflow-y-hidden select-none">
+    
+    <!-- Massive Ultra-Luxury Landmark Watermark (Cinzel Display, clamp scaling, subtle 0.05 opacity, distinct word gap) -->
+    <div 
+      class="pointer-events-none select-none absolute left-1/2 bottom-2 sm:bottom-4 -translate-x-1/2 w-full text-center whitespace-nowrap z-0 font-royal"
+      aria-hidden="true"
+      style="
+        font-family: 'Cinzel', serif;
+        font-size: clamp(3rem, 12vw, 14rem);
+        font-weight: 900;
+        letter-spacing: 0.35em;
+        word-spacing: 1.8em;
+        line-height: 0.9;
+        color: rgba(255, 255, 255, 0.05);
+        user-select: none;
+        -webkit-user-select: none;
+        pointer-events: none;
+        text-transform: uppercase;
+        padding-left: 0.35em;
+      "
+    >
+      KARACHI&nbsp;&nbsp;&nbsp;BITES
+    </div>
+
+    <!-- Active High-Z Footer Content Links -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+      <!-- Pure Luxury Typographic Brand (Premium Cinzel Font & Brilliant White Color) -->
+      <a href="#hero" class="group flex flex-col items-center md:items-start gap-1.5 transition-transform duration-300 hover:scale-105" aria-label="Karachi Bites Home">
+        <span class="font-royal font-black text-white text-xl sm:text-2xl tracking-[0.25em] uppercase drop-shadow-md">
+          Karachi Bites
+        </span>
+        <span class="font-royal text-[10px] sm:text-xs text-white/80 font-bold uppercase tracking-[0.3em] pl-0.5">
+          Royal Kitchen · Est. 2026
+        </span>
+      </a>
+
+      <!-- Navigation Links with Premium Cinzel Font & Pure White Color -->
+      <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-9 uppercase text-xs sm:text-sm">
+        <a href="#hero" class="font-royal font-bold text-white hover:text-[#D4AF37] transition-colors py-1 tracking-[0.2em]">Home</a>
+        <a href="#menu" class="font-royal font-bold text-white hover:text-[#D4AF37] transition-colors py-1 tracking-[0.2em]">Menu</a>
+        <a href="#distance" class="font-royal font-bold text-white hover:text-[#D4AF37] transition-colors py-1 tracking-[0.2em]">Distance</a>
+        <a href="#about" class="font-royal font-bold text-white hover:text-[#D4AF37] transition-colors py-1 tracking-[0.2em]">About Us</a>
+        <button id="footer-btn-staff-portal" class="font-royal font-bold text-[#FFB800] hover:text-white transition-colors py-1 tracking-[0.2em] flex items-center gap-1.5 cursor-pointer">
+          <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+          <span>Staff Portal</span>
+        </button>
+      </div>
+
+      <!-- Functional Copyright & Links with Clean White Premium Font -->
+      <div class="font-royal text-white/80 text-center md:text-right font-medium text-xs tracking-wider">
+        © 2026 Karachi Bites. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT APPLICATION ENGINE (THREE.JS, GSAP, STATE & LOGIC)
+       ========================================================================== -->
+  <script>
+    // --- 1. INITIALIZE ICONS ---
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+
+    // --- 2. LENIS SMOOTH SCROLL INTEGRATION ---
+    if (typeof Lenis !== 'undefined') {
+      const lenis = new Lenis({
+        duration: 1.2,
+        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        orientation: 'vertical',
+        gestureOrientation: 'vertical',
+        smoothWheel: true
+      });
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+      requestAnimationFrame(raf);
+    }
+
+    // --- 3. MENU DATA ---
+    const MENU_ITEMS = [
+      {
+        id: 1,
+        name: 'Karachi Chicken Dum Biryani',
+        category: 'Rice',
+        price: 890,
+        rating: '4.9',
+        portion: 'Double Portion (Serves 1-2)',
+        desc: 'Aged basmati rice slow-steamed with farm-fresh chicken, golden potatoes, dried plums, and house spices.',
+        image: '/images/karachi_chicken_biryani_1791473086349.jpg',
+        badge: 'Bestseller'
+      },
+      {
+        id: 2,
+        name: 'Shinwari Mutton Karahi',
+        category: 'Karahi',
+        price: 1850,
+        rating: '5.0',
+        portion: 'Half KG (Serves 2-3)',
+        desc: 'Tender sheep cutlets braised in their natural fats with organic vine tomatoes, crushed black peppercorns, and ginger.',
+        image: '/images/shinwari_mutton_karahi_1791473105219.jpg',
+        badge: 'Chef Signature'
+      },
+      {
+        id: 3,
+        name: 'Chicken Malai Boti',
+        category: 'BBQ',
+        price: 850,
+        rating: '4.9',
+        portion: '8 Skewered Cubes',
+        desc: 'Melt-in-mouth boneless chicken marinated for 12 hours in fresh cream, mild herbs, and grilled over charcoal.',
+        image: '/images/chicken_malai_boti_1791473120307.jpg',
+        badge: 'Popular'
+      },
+      {
+        id: 4,
+        name: 'Zinger Paratha Roll',
+        category: 'BBQ',
+        price: 420,
+        rating: '4.8',
+        portion: '1 Jumbo Roll',
+        desc: 'Crispy fried chicken fillet wrapped in a flaky handmade butter paratha with garlic mayo and diced onions.',
+        image: '/images/zinger_paratha_roll_1791473138394.jpg',
+        badge: 'Fast Bite'
+      },
+      {
+        id: 5,
+        name: 'Tandoori Garlic Naan Basket',
+        category: 'Breads',
+        price: 240,
+        rating: '4.7',
+        portion: '3 Pieces',
+        desc: 'Piping hot leavened bread brushed with garlic-infused desi ghee and nigella seeds, baked in a clay tandoor.',
+        image: '/images/karachi_tandoor_bread_1791536139799.jpg',
+        badge: 'Clay Baked'
+      },
+      {
+        id: 6,
+        name: 'Zeera Raita & Fresh Salad',
+        category: 'Sides',
+        price: 150,
+        rating: '4.8',
+        portion: 'Bowl',
+        desc: 'Cooling yogurt infused with toasted cumin, mint essence, accompanied by sliced cucumbers and red onions.',
+        image: '/images/karachi_drinks_raita_1791536103023.jpg',
+        badge: 'Cooling'
+      },
+      {
+        id: 7,
+        name: 'Beef Seekh Kebab (4 pcs)',
+        category: 'BBQ',
+        price: 750,
+        rating: '4.9',
+        portion: '4 Jumbo Skewers',
+        desc: 'Minced beef blended with crushed coriander, marrow fat, and pomegranate seeds seared on glowing skewers.',
+        image: '/images/chicken_malai_boti_1791473120307.jpg',
+        badge: 'Spicy'
+      },
+      {
+        id: 8,
+        name: 'Chilled Pakola Soda',
+        category: 'Sides',
+        price: 120,
+        rating: '4.9',
+        portion: '330ml Can',
+        desc: 'Karachi icon - ice cold vibrant cream soda pairing perfectly with fiery karahi and spiced biryani.',
+        image: '/images/karachi_drinks_raita_1791536103023.jpg',
+        badge: 'Classic'
+      }
+    ];
+
+    // --- 4. CART & APPLICATION STATE ---
+    let cart = [];
+    let activeBranch = 'clifton';
+    let currentActiveDishIndex = 0;
+
+    try {
+      const savedCart = localStorage.getItem('kb_cart_items');
+      if (savedCart) cart = JSON.parse(savedCart);
+    } catch (e) {}
+
+    // --- 5. TOAST NOTIFICATION ENGINE ---
+    function showToast(message, type = 'success') {
+      const container = document.getElementById('toast-container');
+      const toast = document.createElement('div');
+      toast.className = 'toast-msg ' + (type === 'success' ? 'toast-success' : 'toast-error');
+      
+      const icon = type === 'success' ? 'check-circle-2' : 'alert-circle';
+      toast.innerHTML = '<i data-lucide="' + icon + '" style="width: 20px; height: 20px; flex-shrink: 0;"></i><span>' + message + '</span>';
+
+      container.appendChild(toast);
+      if (window.lucide) window.lucide.createIcons();
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(110%)';
+        setTimeout(() => toast.remove(), 300);
+      }, 3500);
+    }
+
+    // --- 6. RENDER MENU ITEMS ---
+    function renderMenu(itemsToRender) {
+      const container = document.getElementById('menu-grid-container');
+      container.innerHTML = '';
+
+      if (itemsToRender.length === 0) {
+        open404Modal();
+        return;
+      }
+
+      itemsToRender.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'product-card p-4 rounded-3xl glass-surface border border-[#2A2F3D] hover:border-gold transition-all duration-300 flex flex-col justify-between group';
+        
+        card.innerHTML = [
+          '<div>',
+          '  <div class="product-img-wrapper relative h-48 rounded-2xl overflow-hidden mb-4 bg-[#0A0C10]" data-id="' + item.id + '" title="View ' + item.name + ' recipe details">',
+          '    <img src="' + item.image + '" alt="' + item.name + '" loading="lazy" class="product-img" />',
+          '    <div class="product-img-hover-badge">',
+          '      <span class="product-img-hover-pill">',
+          '        <i data-lucide="eye" style="width: 13px; height: 13px;"></i>',
+          '        <span>View Details</span>',
+          '      </span>',
+          '    </div>',
+          '    <div class="product-badge-float absolute top-3 left-3 bg-[#0F1115]/90 border border-gold/40 px-2 py-1 rounded-md text-xs font-black uppercase text-[#D4AF37] z-10" style="font-size: 10px;">',
+          '      ' + item.badge,
+          '    </div>',
+          '    <div class="product-badge-float absolute top-3 right-3 bg-[#0F1115]/90 px-2 py-0.5 rounded-md text-xs font-bold text-[#FFB800] flex items-center gap-1 font-mono-num z-10">',
+          '      ★ ' + item.rating,
+          '    </div>',
+          '  </div>',
+          '  <h3 class="font-royal font-bold text-base text-white group-hover:text-[#D4AF37] transition-colors leading-snug">',
+          '    ' + item.name,
+          '  </h3>',
+          '  <p class="text-xs text-[#A8A296] line-clamp-2 mt-1 leading-relaxed" style="font-size: 11px;">',
+          '    ' + item.desc,
+          '  </p>',
+          '  <div class="text-xs text-[#6E7480] font-semibold mt-2" style="font-size: 10px;">',
+          '    ' + item.portion,
+          '  </div>',
+          '</div>',
+          '<div class="mt-4 pt-3 border-t border-[#2A2F3D] flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">',
+          '  <div class="flex items-center justify-between sm:block">',
+          '    <span class="text-[9px] uppercase tracking-wider text-[#6E7480] block">Price</span>',
+          '    <span class="font-mono-num font-black text-base text-[#FFB800]">Rs. ' + item.price + '</span>',
+          '  </div>',
+          '  <div class="flex items-center gap-2 w-full sm:w-auto">',
+          '    <button class="btn-outline-conic flex-1 sm:flex-none py-2 px-3 text-xs font-bold ripple-surface view-details-btn text-center justify-center" data-id="' + item.id + '">',
+          '      <span>View Details</span>',
+          '    </button>',
+          '    <button class="btn-primary-liquid flex-1 sm:flex-none py-2 px-3.5 text-xs font-bold ripple-surface add-to-cart-btn text-center justify-center" data-id="' + item.id + '">',
+          '      <i data-lucide="plus" style="width: 14px; height: 14px;"></i>',
+          '      <span>Add to Cart</span>',
+          '    </button>',
+          '  </div>',
+          '</div>'
+        ].join('\n');
+
+        container.appendChild(card);
+      });
+
+      if (window.lucide) window.lucide.createIcons();
+
+      container.querySelectorAll('.product-img-wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = parseInt(wrapper.getAttribute('data-id'));
+          openDishModal(id);
+        });
+      });
+
+      container.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = parseInt(btn.getAttribute('data-id'));
+          addToCart(id);
+        });
+      });
+
+      container.querySelectorAll('.view-details-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const id = parseInt(btn.getAttribute('data-id'));
+          openDishModal(id);
+        });
+      });
+    }
+
+    // --- 7. CART ENGINE ---
+    function addToCart(itemId) {
+      const item = MENU_ITEMS.find(m => m.id === itemId);
+      if (!item) return;
+
+      const existing = cart.find(c => c.id === itemId);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...item, qty: 1 });
+      }
+
+      saveCart();
+      updateCartUI();
+      showToast('Added ' + item.name + ' to bag!', 'success');
+    }
+
+    function updateCartQty(itemId, delta) {
+      const entry = cart.find(c => c.id === itemId);
+      if (!entry) return;
+
+      entry.qty += delta;
+      if (entry.qty <= 0) {
+        cart = cart.filter(c => c.id !== itemId);
+        showToast('Item removed from bag', 'error');
+      }
+      saveCart();
+      updateCartUI();
+    }
+
+    function saveCart() {
+      try {
+        localStorage.setItem('kb_cart_items', JSON.stringify(cart));
+      } catch (e) {}
+    }
+
+    function updateCartUI() {
+      const count = cart.reduce((acc, i) => acc + i.qty, 0);
+      const subtotal = cart.reduce((acc, i) => acc + (i.price * i.qty), 0);
+      const delivery = count > 0 ? 150 : 0;
+      const total = subtotal + delivery;
+
+      document.getElementById('header-cart-count').textContent = count;
+      document.getElementById('header-cart-total').textContent = subtotal;
+
+      document.getElementById('cart-subtotal-val').textContent = subtotal;
+      document.getElementById('cart-delivery-val').textContent = delivery;
+      document.getElementById('cart-grand-total-val').textContent = total;
+      document.getElementById('checkout-total-display').textContent = total;
+
+      const container = document.getElementById('cart-items-container');
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = [
+          '<div style="height: 180px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: #6E7480; gap: 8px;">',
+          '  <i data-lucide="shopping-bag" style="width: 36px; height: 36px; color: #2A2F3D;"></i>',
+          '  <p style="font-size: 12px;">Your bag is currently empty.</p>',
+          '</div>'
+        ].join('\n');
+      } else {
+        cart.forEach(item => {
+          const row = document.createElement('div');
+          row.className = 'p-3 rounded-2xl bg-[#141720] border border-[#2A2F3D] flex items-center justify-between gap-3 group';
+          row.innerHTML = [
+            '<div class="flex items-center gap-3 min-w-0" style="flex: 1;">',
+            '  <div class="product-img-wrapper w-12 h-12 rounded-xl shrink-0 overflow-hidden border border-[#2A2F3D]/80" title="' + item.name + '">',
+            '    <img src="' + item.image + '" alt="' + item.name + '" class="product-img w-full h-full object-cover" />',
+            '  </div>',
+            '  <div class="min-w-0" style="flex: 1;">',
+            '    <h4 class="font-bold text-xs text-white" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">' + item.name + '</h4>',
+            '    <div class="font-mono-num text-[#FFB800] mt-0.5" style="font-size: 11px;">Rs. ' + (item.price * item.qty) + '</div>',
+            '  </div>',
+            '</div>',
+            '<div class="flex items-center gap-2 shrink-0">',
+            '  <button class="btn-kinetic qty-minus" data-id="' + item.id + '">-</button>',
+            '  <span class="font-mono-num font-bold text-xs text-white" style="width: 18px; text-align: center;">' + item.qty + '</span>',
+            '  <button class="btn-kinetic qty-plus" data-id="' + item.id + '">+</button>',
+            '</div>'
+          ].join('\n');
+          container.appendChild(row);
+        });
+      }
+
+      if (window.lucide) window.lucide.createIcons();
+
+      container.querySelectorAll('.qty-minus').forEach(b => {
+        b.addEventListener('click', () => updateCartQty(parseInt(b.getAttribute('data-id')), -1));
+      });
+      container.querySelectorAll('.qty-plus').forEach(b => {
+        b.addEventListener('click', () => updateCartQty(parseInt(b.getAttribute('data-id')), 1));
+      });
+    }
+
+    // --- 8. CART DRAWER & CHECKOUT MODAL TOGGLES ---
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartBackdrop = document.getElementById('cart-backdrop');
+
+    function openCart() {
+      cartDrawer.classList.add('open');
+      cartBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeCart() {
+      cartDrawer.classList.remove('open');
+      cartBackdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
+
+    document.getElementById('cart-btn-trigger').addEventListener('click', (e) => {
+      e.preventDefault();
+      openCart();
+    });
+    document.getElementById('cart-close-btn').addEventListener('click', closeCart);
+    cartBackdrop.addEventListener('click', closeCart);
+
+    const checkoutModal = document.getElementById('checkout-modal');
+    document.getElementById('cart-checkout-btn').addEventListener('click', () => {
+      if (cart.length === 0) {
+        showToast('Cart is empty. Please add delicious items first!', 'error');
+        return;
+      }
+      closeCart();
+      checkoutModal.classList.add('active');
+    });
+
+    document.getElementById('checkout-close-btn').addEventListener('click', () => {
+      checkoutModal.classList.remove('active');
+    });
+
+    document.getElementById('checkout-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('order-name').value.trim();
+      const phone = document.getElementById('order-phone').value.trim();
+      const address = document.getElementById('order-address').value.trim();
+      const hub = document.getElementById('order-hub').value;
+
+      checkoutModal.classList.remove('active');
+      cart = [];
+      saveCart();
+      updateCartUI();
+
+      showToast('Order Placed Successfully for ' + name + '!', 'success');
+      showToast('Dispatching from ' + hub.toUpperCase() + ' Hub to: ' + address, 'success');
+    });
+
+    // --- 9. CUSTOM 404 MODAL ---
+    const modal404 = document.getElementById('modal-404');
+    function open404Modal() {
+      modal404.classList.add('active');
+    }
+    function close404Modal() {
+      modal404.classList.remove('active');
+    }
+    document.getElementById('btn-close-404').addEventListener('click', close404Modal);
+    document.getElementById('btn-reset-menu').addEventListener('click', () => {
+      close404Modal();
+      document.getElementById('menu-search-input').value = '';
+      renderMenu(MENU_ITEMS);
+    });
+
+    // --- 10. SEARCH & CATEGORY FILTER LISTENERS ---
+    const searchInput = document.getElementById('menu-search-input');
+    searchInput.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      const filtered = MENU_ITEMS.filter(m => 
+        m.name.toLowerCase().includes(q) || 
+        m.category.toLowerCase().includes(q) || 
+        m.desc.toLowerCase().includes(q)
+      );
+      renderMenu(filtered);
+    });
+
+    document.querySelectorAll('#category-filter-bar .pill-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#category-filter-bar .pill-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.getAttribute('data-cat');
+        if (cat === 'all') {
+          renderMenu(MENU_ITEMS);
+        } else {
+          renderMenu(MENU_ITEMS.filter(m => m.category === cat));
+        }
+      });
+    });
+
+    // --- 11. BRANCH SELECTOR SYNCHRONIZATION ---
+    document.querySelectorAll('#hero-branch-pills .pill-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#hero-branch-pills .pill-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeBranch = btn.getAttribute('data-branch');
+        const label = activeBranch === 'clifton' ? 'Clifton' : activeBranch === 'gulshan' ? 'Gulshan' : 'Nazimabad';
+        document.getElementById('header-branch-name').textContent = label;
+        showToast('Active Kitchen Hub switched to ' + label, 'success');
+      });
+    });
+
+    // --- 12. MOBILE NAVIGATION DRAWER ---
+    const mobileDrawer = document.getElementById('mobile-menu-drawer');
+    const mobileBackdrop = document.getElementById('mobile-drawer-backdrop');
+    function openMobileDrawer() {
+      mobileDrawer.classList.add('open');
+      mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+    }
+    function closeMobileDrawer() {
+      mobileDrawer.classList.remove('open');
+      mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+    }
+    document.getElementById('mobile-menu-toggle').addEventListener('click', openMobileDrawer);
+    document.getElementById('mobile-drawer-close').addEventListener('click', closeMobileDrawer);
+    mobileBackdrop.addEventListener('click', closeMobileDrawer);
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', closeMobileDrawer);
+    });
+
+    // --- 9b. DISH DETAILS MODAL ENGINE ---
+    const dishModal = document.getElementById('dish-modal');
+    let selectedDishForModal = null;
+
+    function openDishModal(dishId) {
+      const item = MENU_ITEMS.find(m => m.id === dishId);
+      if (!item) return;
+      selectedDishForModal = item;
+
+      document.getElementById('dish-modal-cat').textContent = item.category;
+      document.getElementById('dish-modal-badge').textContent = item.badge;
+      document.getElementById('dish-modal-img').src = item.image;
+      document.getElementById('dish-modal-img').alt = item.name;
+      document.getElementById('dish-modal-title').textContent = item.name;
+      document.getElementById('dish-modal-desc').textContent = item.desc;
+      document.getElementById('dish-modal-price').textContent = 'Rs. ' + item.price;
+      document.getElementById('dish-modal-rating').textContent = '★ ' + item.rating;
+      document.getElementById('dish-modal-portion').textContent = item.portion;
+      document.getElementById('dish-modal-prep').textContent = item.category === 'Rice' ? 'Slow Clay Handi Cooked' : (item.category === 'Karahi' ? 'Iron Wok Braised' : 'Charcoal Pit Seared');
+
+      dishModal.classList.add('active');
+    }
+
+    function closeDishModal() {
+      dishModal.classList.remove('active');
+    }
+
+    document.getElementById('dish-modal-close-btn').addEventListener('click', closeDishModal);
+    document.getElementById('dish-modal-x-btn').addEventListener('click', closeDishModal);
+    dishModal.addEventListener('click', (e) => {
+      if (e.target === dishModal) closeDishModal();
+    });
+
+    document.getElementById('dish-modal-add-btn').addEventListener('click', () => {
+      if (selectedDishForModal) {
+        addToCart(selectedDishForModal.id);
+        closeDishModal();
+      }
+    });
+
+    document.getElementById('checkout-cancel-btn').addEventListener('click', () => {
+      checkoutModal.classList.remove('active');
+    });
+
+
+
+    // Dedicated Search Button Trigger
+    document.getElementById('menu-search-btn').addEventListener('click', () => {
+      const q = searchInput.value.toLowerCase().trim();
+      if (!q) {
+        renderMenu(MENU_ITEMS);
+        return;
+      }
+      const filtered = MENU_ITEMS.filter(m => 
+        m.name.toLowerCase().includes(q) || 
+        m.category.toLowerCase().includes(q) || 
+        m.desc.toLowerCase().includes(q)
+      );
+      renderMenu(filtered);
+      if (filtered.length === 0) {
+        open404Modal();
+      }
+    });
+
+    // --- 13. KINETIC HAPTIC ROTATION & TOUCH RIPPLE ENGINE ---
+    // Kinetic Rotation micro-transform (rotate(90deg)) & Quick Scale Pulse
+    document.addEventListener('click', (e) => {
+      const kineticTarget = e.target.closest('.btn-kinetic, .qty-minus, .qty-plus, [aria-label*="Close"], [aria-label*="Toggle"]');
+      if (!kineticTarget) return;
+
+      kineticTarget.classList.remove('is-pulsing');
+      void kineticTarget.offsetWidth; // trigger reflow
+      kineticTarget.classList.add('is-pulsing');
+      setTimeout(() => {
+        kineticTarget.classList.remove('is-pulsing');
+      }, 340);
+    });
+
+    // Touch Ripple Effect: radial ripple wave expanding from point of touch (scale(2) with pointer-events: none)
+    function triggerRadialRipple(e) {
+      const target = e.target.closest('.ripple-surface, button, .pill-filter, .btn-primary-liquid, .btn-outline-conic, .btn-kinetic, a[class*="btn-"]');
+      if (!target) return;
+
+      const rect = target.getBoundingClientRect();
+      const touchX = (e.touches && e.touches.length > 0) ? e.touches[0].clientX : e.clientX;
+      const touchY = (e.touches && e.touches.length > 0) ? e.touches[0].clientY : e.clientY;
+
+      if (touchX === undefined || touchY === undefined) return;
+
+      const ripple = document.createElement('span');
+      ripple.className = 'touch-ripple';
+
+      // Ensure target can contain absolute ripple
+      if (!target.classList.contains('ripple-surface')) {
+        target.classList.add('ripple-surface');
+      }
+
+      const diameter = Math.max(rect.width, rect.height) * 2;
+      const radius = diameter / 2;
+
+      ripple.style.width = diameter + 'px';
+      ripple.style.height = diameter + 'px';
+      ripple.style.left = (touchX - rect.left - radius) + 'px';
+      ripple.style.top = (touchY - rect.top - radius) + 'px';
+
+      // Clean up previous ripples if any
+      const existingRipples = target.querySelectorAll('.touch-ripple');
+      existingRipples.forEach(r => r.remove());
+
+      target.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 650);
+    }
+
+    document.addEventListener('click', triggerRadialRipple);
+
+
+    // --- 14. CONTACT FORM FEEDBACK ---
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      e.target.reset();
+      showToast('Thank you! Your catering message has been received.', 'success');
+    });
+
+    document.getElementById('hero-track-btn').addEventListener('click', () => {
+      showToast('Live GPS Dispatch: Kitchen Hub #1 (Clifton) is preparing orders.', 'success');
+    });
+
+    // ==========================================================================
+    // --- 15. AUTHENTIC HERO CULINARY SHOWCASE ENGINE (SMOOTH 2D VISUALS) ---
+    // ==========================================================================
+    const HERO_DISH_DATA = {
+      feast: {
+        id: 1,
+        title: "Karachi Royal Feast & Dum Biryani",
+        desc: "Slow-cooked saffron basmati, succulent chicken & charcoal boti",
+        price: "Rs. 890",
+        rating: "4.9",
+        badge: "Royal Bestseller",
+        prep: "Clay Handi Sealed",
+        image: "/images/karachi_hero_feast_1791536033852.jpg"
+      },
+      biryani: {
+        id: 1,
+        title: "Karachi Chicken Dum Biryani",
+        desc: "Aged basmati rice slow-steamed with farm chicken & golden potatoes",
+        price: "Rs. 890",
+        rating: "4.9",
+        badge: "Chef Signature",
+        prep: "Terracotta Handi Cooked",
+        image: "/images/karachi_chicken_biryani_1791473086349.jpg"
+      },
+      karahi: {
+        id: 2,
+        title: "Shinwari Mutton Karahi",
+        desc: "Sheep cutlets braised in natural fats, vine tomatoes & black pepper",
+        price: "Rs. 1,850",
+        rating: "5.0",
+        badge: "Heritage Wok",
+        prep: "Smoking Iron Wok",
+        image: "/images/shinwari_mutton_karahi_1791473105219.jpg"
+      },
+      bbq: {
+        id: 3,
+        title: "Chicken Malai Boti Skewers",
+        desc: "12-hour cream marinated boneless chicken seared over charcoal",
+        price: "Rs. 850",
+        rating: "4.9",
+        badge: "Pit Master",
+        prep: "Charcoal Hardwood Pits",
+        image: "/images/chicken_malai_boti_1791473120307.jpg"
+      }
+    };
+
+    let activeHeroDishId = 1;
+
+    document.querySelectorAll('[data-dish]').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('[data-dish]').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        const dishKey = tab.getAttribute('data-dish');
+        const dish = HERO_DISH_DATA[dishKey];
+        if (!dish) return;
+
+        activeHeroDishId = dish.id;
+        const img = document.getElementById('hero-showcase-img');
+        if (img) {
+          img.style.opacity = '0.3';
+          setTimeout(() => {
+            img.src = dish.image;
+            img.style.opacity = '1';
+          }, 150);
+        }
+
+        const titleEl = document.getElementById('hero-showcase-title');
+        if (titleEl) titleEl.textContent = dish.title;
+
+        const descEl = document.getElementById('hero-showcase-desc');
+        if (descEl) descEl.textContent = dish.desc;
+
+        const priceEl = document.getElementById('hero-showcase-price');
+        if (priceEl) priceEl.textContent = dish.price;
+
+        const ratingEl = document.getElementById('hero-showcase-rating');
+        if (ratingEl) ratingEl.textContent = dish.rating;
+
+        const badgeEl = document.getElementById('hero-showcase-badge');
+        if (badgeEl) badgeEl.innerHTML = '<i data-lucide="flame" style="width: 12px; height: 12px;"></i><span>' + dish.badge + '</span>';
+
+        const prepEl = document.getElementById('hero-showcase-prep');
+        if (prepEl) prepEl.textContent = dish.prep;
+
+        const addBtn = document.getElementById('hero-showcase-add-btn');
+        if (addBtn) addBtn.setAttribute('data-id', dish.id);
+
+        if (window.lucide) window.lucide.createIcons();
+      });
+    });
+
+    const heroShowcaseAddBtn = document.getElementById('hero-showcase-add-btn');
+    if (heroShowcaseAddBtn) {
+      heroShowcaseAddBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        addToCart(activeHeroDishId);
+      });
+    }
+
+    // ==========================================================================
+    // --- 16. SEPARATED NAVIGATION CATEGORIES & ACTIVE STATE ENGINE ---
+    // ==========================================================================
+    const navCatPills = document.querySelectorAll('.nav-category-group .nav-cat-pill:not(.staff-badge)');
+    navCatPills.forEach(pill => {
+      pill.addEventListener('click', () => {
+        navCatPills.forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+      });
+    });
+
+    // Update active category pill on scroll
+    window.addEventListener('scroll', () => {
+      const scrollPos = window.scrollY + 180;
+      const sections = [
+        { id: 'hero', pill: document.getElementById('nav-pill-home') },
+        { id: 'menu', pill: document.getElementById('nav-pill-menu') },
+        { id: 'distance', pill: document.getElementById('nav-pill-distance') },
+        { id: 'about', pill: document.getElementById('nav-pill-about') }
+      ];
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sec = document.getElementById(sections[i].id);
+        if (sec && sec.offsetTop <= scrollPos) {
+          navCatPills.forEach(p => p.classList.remove('active'));
+          if (sections[i].pill) sections[i].pill.classList.add('active');
+          break;
+        }
+      }
+    });
+
+    // ==========================================================================
+    // --- 17. INTERACTIVE KARACHI DISTANCE & DELIVERY CALCULATOR ENGINE ---
+    // ==========================================================================
+    const AREA_DISTANCES = {
+      clifton: { 
+        clifton: '1.2 km', gulshan: '12.5 km', nazimabad: '16.0 km', 
+        tagClifton: 'NEAREST (20m)', tagGulshan: '45m ETA', tagNazimabad: '55m ETA', 
+        best: 'clifton', label: 'Clifton Kitchen Hub #01 (1.2 km)' 
+      },
+      dha: { 
+        clifton: '2.8 km', gulshan: '14.1 km', nazimabad: '17.5 km', 
+        tagClifton: 'NEAREST (25m)', tagGulshan: '50m ETA', tagNazimabad: '55m ETA', 
+        best: 'clifton', label: 'Clifton Kitchen Hub #01 (2.8 km)' 
+      },
+      saddar: { 
+        clifton: '5.1 km', gulshan: '8.4 km', nazimabad: '10.2 km', 
+        tagClifton: 'NEAREST (30m)', tagGulshan: '35m ETA', tagNazimabad: '40m ETA', 
+        best: 'clifton', label: 'Clifton Kitchen Hub #01 (5.1 km)' 
+      },
+      pechs: { 
+        clifton: '8.2 km', gulshan: '4.6 km', nazimabad: '8.9 km', 
+        tagClifton: '35m ETA', tagGulshan: 'NEAREST (25m)', tagNazimabad: '35m ETA', 
+        best: 'gulshan', label: 'Gulshan Kitchen Hub #02 (4.6 km)' 
+      },
+      gulshan: { 
+        clifton: '13.0 km', gulshan: '1.5 km', nazimabad: '7.8 km', 
+        tagClifton: '45m ETA', tagGulshan: 'NEAREST (20m)', tagNazimabad: '30m ETA', 
+        best: 'gulshan', label: 'Gulshan Kitchen Hub #02 (1.5 km)' 
+      },
+      johar: { 
+        clifton: '15.5 km', gulshan: '3.8 km', nazimabad: '11.0 km', 
+        tagClifton: '50m ETA', tagGulshan: 'NEAREST (25m)', tagNazimabad: '40m ETA', 
+        best: 'gulshan', label: 'Gulshan Kitchen Hub #02 (3.8 km)' 
+      },
+      nazimabad: { 
+        clifton: '16.5 km', gulshan: '7.9 km', nazimabad: '1.1 km', 
+        tagClifton: '55m ETA', tagGulshan: '30m ETA', tagNazimabad: 'NEAREST (18m)', 
+        best: 'nazimabad', label: 'North Nazimabad Hub #03 (1.1 km)' 
+      },
+      fbarea: { 
+        clifton: '15.0 km', gulshan: '6.2 km', nazimabad: '3.4 km', 
+        tagClifton: '50m ETA', tagGulshan: '25m ETA', tagNazimabad: 'NEAREST (20m)', 
+        best: 'nazimabad', label: 'North Nazimabad Hub #03 (3.4 km)' 
+      },
+      malir: { 
+        clifton: '18.2 km', gulshan: '6.5 km', nazimabad: '12.0 km', 
+        tagClifton: '55m ETA', tagGulshan: 'NEAREST (28m)', tagNazimabad: '45m ETA', 
+        best: 'gulshan', label: 'Gulshan Kitchen Hub #02 (6.5 km)' 
+      },
+      scheme33: { 
+        clifton: '19.5 km', gulshan: '7.2 km', nazimabad: '13.5 km', 
+        tagClifton: '60m ETA', tagGulshan: 'NEAREST (30m)', tagNazimabad: '45m ETA', 
+        best: 'gulshan', label: 'Gulshan Kitchen Hub #02 (7.2 km)' 
+      }
+    };
+
+    function recalculateDistance() {
+      const select = document.getElementById('distance-area-select');
+      const val = select.value;
+      const data = AREA_DISTANCES[val] || AREA_DISTANCES['clifton'];
+
+      document.getElementById('dist-val-clifton').textContent = data.clifton;
+      document.getElementById('dist-val-gulshan').textContent = data.gulshan;
+      document.getElementById('dist-val-nazimabad').textContent = data.nazimabad;
+
+      // Update tags & borders
+      const boxClifton = document.getElementById('dist-box-clifton');
+      const boxGulshan = document.getElementById('dist-box-gulshan');
+      const boxNazimabad = document.getElementById('dist-box-nazimabad');
+      const tagClifton = document.getElementById('dist-tag-clifton');
+      const tagGulshan = document.getElementById('dist-tag-gulshan');
+      const tagNazimabad = document.getElementById('dist-tag-nazimabad');
+
+      [boxClifton, boxGulshan, boxNazimabad].forEach(b => {
+        b.className = 'p-3.5 rounded-xl bg-[#141720] border border-[#2A2F3D] flex items-center justify-between';
+      });
+      [tagClifton, tagGulshan, tagNazimabad].forEach(t => {
+        t.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-[#2A2F3D] text-[#A8A296]';
+      });
+
+      tagClifton.textContent = data.tagClifton;
+      tagGulshan.textContent = data.tagGulshan;
+      tagNazimabad.textContent = data.tagNazimabad;
+
+      if (data.best === 'clifton') {
+        boxClifton.className = 'p-3.5 rounded-xl bg-[#141720] border border-gold/70 flex items-center justify-between shadow-lg';
+        tagClifton.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+      } else if (data.best === 'gulshan') {
+        boxGulshan.className = 'p-3.5 rounded-xl bg-[#141720] border border-gold/70 flex items-center justify-between shadow-lg';
+        tagGulshan.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+      } else {
+        boxNazimabad.className = 'p-3.5 rounded-xl bg-[#141720] border border-gold/70 flex items-center justify-between shadow-lg';
+        tagNazimabad.className = 'text-[9px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+      }
+
+      // Sync active branch in header
+      activeBranch = data.best;
+      const hubLabel = activeBranch === 'clifton' ? 'Clifton' : activeBranch === 'gulshan' ? 'Gulshan' : 'Nazimabad';
+      document.getElementById('header-branch-name').textContent = hubLabel;
+      showToast('Calculated distance: Nearest kitchen is ' + data.label, 'success');
+    }
+
+    const btnCalcDist = document.getElementById('btn-calc-distance');
+    if (btnCalcDist) {
+      btnCalcDist.addEventListener('click', recalculateDistance);
+    }
+    const distAreaSelect = document.getElementById('distance-area-select');
+    if (distAreaSelect) {
+      distAreaSelect.addEventListener('change', recalculateDistance);
+    }
+
+    // ==========================================================================
+    // --- 18. STAFF OPERATIONS & KITCHEN DISPLAY PORTAL ENGINE ---
+    // ==========================================================================
+    const staffModal = document.getElementById('modal-staff-portal');
+
+    function openStaffPortal() {
+      if (staffModal) {
+        staffModal.classList.add('active');
+        if (window.lucide) window.lucide.createIcons();
+      }
+    }
+
+    function closeStaffPortal() {
+      if (staffModal) {
+        staffModal.classList.remove('active');
+      }
+    }
+
+    // Triggers across the page
+    const staffTriggers = [
+      document.getElementById('btn-staff-portal'),
+      document.getElementById('mobile-btn-staff-portal'),
+      document.getElementById('footer-btn-staff-portal')
+    ];
+    staffTriggers.forEach(btn => {
+      if (btn) {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          // Close mobile drawer if open
+          const mobileDrawer = document.getElementById('mobile-menu-drawer');
+          const mobileBackdrop = document.getElementById('mobile-drawer-backdrop');
+          if (mobileDrawer) mobileDrawer.classList.remove('open');
+          if (mobileBackdrop) {
+            mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+            mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+          }
+          openStaffPortal();
+        });
+      }
+    });
+
+    const closeStaffBtn = document.getElementById('btn-close-staff-portal');
+    if (closeStaffBtn) closeStaffBtn.addEventListener('click', closeStaffPortal);
+
+    const closeStaffFooterBtn = document.getElementById('btn-close-staff-portal-footer');
+    if (closeStaffFooterBtn) closeStaffFooterBtn.addEventListener('click', closeStaffPortal);
+
+    if (staffModal) {
+      staffModal.addEventListener('click', (e) => {
+        if (e.target === staffModal) closeStaffPortal();
+      });
+    }
+
+    // Staff Tab Switching
+    document.querySelectorAll('.staff-tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.staff-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const tab = btn.getAttribute('data-tab');
+        document.getElementById('staff-tab-kot').classList.toggle('hidden', tab !== 'kot');
+        document.getElementById('staff-tab-inventory').classList.toggle('hidden', tab !== 'inventory');
+        document.getElementById('staff-tab-crew').classList.toggle('hidden', tab !== 'crew');
+        if (window.lucide) window.lucide.createIcons();
+      });
+    });
+
+    // Advance KOT Ticket Status
+    document.querySelectorAll('.kot-next-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const ticketNum = btn.getAttribute('data-ticket');
+        const ticket = document.getElementById('kot-ticket-' + ticketNum);
+        if (!ticket) return;
+
+        const badge = ticket.querySelector('.kot-status-badge');
+        if (badge) {
+          if (badge.textContent.includes('Simmering') || badge.textContent.includes('Queue')) {
+            badge.className = 'kot-status-badge text-[10px] font-bold py-1 px-2.5 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/30';
+            badge.textContent = '✅ Packed & Ready for Dispatch';
+            btn.innerHTML = '<span>Advance: Hand to Rider</span>';
+            showToast('Order #KB-904' + ticketNum + ' marked as Ready for Dispatch!', 'success');
+          } else if (badge.textContent.includes('Packed') || badge.textContent.includes('Pit Seared')) {
+            badge.className = 'kot-status-badge text-[10px] font-bold py-1 px-2.5 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30';
+            badge.textContent = '🛵 Dispatched with Express Rider';
+            btn.innerHTML = '<span>Completed</span>';
+            btn.disabled = true;
+            btn.style.opacity = '0.5';
+            showToast('Order #KB-904' + ticketNum + ' handed to Express Courier!', 'success');
+          } else {
+            showToast('Order is already in transit', 'success');
+          }
+        }
+      });
+    });
+
+    // Toggle Duty Clock
+    const btnToggleClock = document.getElementById('btn-toggle-clock');
+    if (btnToggleClock) {
+      let isClockedIn = true;
+      btnToggleClock.addEventListener('click', () => {
+        isClockedIn = !isClockedIn;
+        const dutyBadge = document.getElementById('staff-duty-badge');
+        if (dutyBadge) {
+          if (isClockedIn) {
+            dutyBadge.className = 'py-1 px-3 rounded-full text-[10px] font-bold bg-[#2E7D32]/20 text-[#2E7D32] border border-[#2E7D32]/40';
+            dutyBadge.textContent = '● Clocked In';
+            showToast('Shift attendance logged: Ustad Arshad (Clocked In)', 'success');
+          } else {
+            dutyBadge.className = 'py-1 px-3 rounded-full text-[10px] font-bold bg-amber-500/20 text-amber-400 border border-amber-500/40';
+            dutyBadge.textContent = '○ On Break';
+            showToast('Shift status updated: On Break', 'error');
+          }
+        }
+      });
+    }
+
+    // Request Restock Button
+    const btnRestock = document.getElementById('btn-request-restock');
+    if (btnRestock) {
+      btnRestock.addEventListener('click', () => {
+        showToast('Restock purchase requisition sent to Clifton Hub Manager!', 'success');
+      });
+    }
+
+    // --- 19. INITIALIZE RENDER ON PAGE LOAD ---
+    renderMenu(MENU_ITEMS);
+    updateCartUI();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --color-page: #FAF6ED;
+  --color-hero: #0C0E14;
+  --color-card: #FFFDF8;
+  --color-card-border: #EFE2CD;
+  --color-accent-gold: #D4AF37;
+  --color-accent-amber: #C86314;
+  --color-dark-obsidian: #0C0E14;
+  --color-dark-surface: #141722;
+  --color-text-primary: #241810;
+  --color-text-secondary: #766457;
+}
+
+html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: #241810;
+  background-color: #FAF6ED;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.012em;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+#root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure all media cannot cause horizontal overflow */
+img, video, canvas, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Anchor offset so fixed/sticky headers never overlap section headers */
+[id] {
+  scroll-margin-top: 5.5rem;
+}
+
+/* Left-to-right continuous product ticker tape marquee */
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 40s linear infinite;
+}
+
+.animate-marquee-ltr:hover {
+  animation-play-state: paused;
+}
+
+/* Custom sleek dark & gold scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0C0E14;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D313E;
+  border-radius: 9999px;
+  border: 1px solid #D4AF37;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+/* Print thermal kitchen receipt styling */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

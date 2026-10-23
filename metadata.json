@@ -1,0 +1,6 @@
+{
+  "name": "Karachi Bites",
+  "description": "Online ordering system for Karachi Bites featuring authentic Karachi flavours, branch selection, persistent cart, and live order tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

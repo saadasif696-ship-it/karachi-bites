@@ -1,0 +1,201 @@
+{
+  "menu": [
+    {
+      "id": 1,
+      "name": "Chicken Malai Boti",
+      "category": "BBQ",
+      "price": 850,
+      "tags": "mild",
+      "available": true,
+      "description": "Tender, melt-in-your-mouth chicken boneless cubes marinated in fresh cream, green chilies, and aromatic spices, grilled over slow charcoal.",
+      "image": "/src/assets/images/chicken_malai_boti_1791473120307.jpg",
+      "portion": "8 skewers (Serves 1-2)",
+      "spiceLevel": "Mild & Creamy"
+    },
+    {
+      "id": 2,
+      "name": "Beef Seekh Kebab",
+      "category": "BBQ",
+      "price": 780,
+      "tags": "spicy",
+      "available": true,
+      "description": "Minced beef infused with crushed coriander, red pepper, herbs, and traditional spices cooked on skewers to smoky perfection.",
+      "image": "/src/assets/images/chicken_malai_boti_1791473120307.jpg",
+      "portion": "4 seekh pieces (Serves 1-2)",
+      "spiceLevel": "Medium-Hot"
+    },
+    {
+      "id": 3,
+      "name": "Mutton Karahi (half)",
+      "category": "Karahi",
+      "price": 1650,
+      "tags": "spicy",
+      "available": true,
+      "description": "Fresh mutton cooked in a heavy iron wok with fresh tomatoes, ginger juliennes, green chilies, and freshly ground black pepper.",
+      "image": "/src/assets/images/shinwari_mutton_karahi_1791473105219.jpg",
+      "portion": "500g half karahi (Serves 2)",
+      "spiceLevel": "Spicy Shinwari"
+    },
+    {
+      "id": 4,
+      "name": "Chicken Karahi (half)",
+      "category": "Karahi",
+      "price": 1250,
+      "tags": "spicy",
+      "available": true,
+      "description": "Authentic Highway style chicken cooked on high flame with tomatoes, green chili, butter, and crushed aromatic spices.",
+      "image": "/src/assets/images/shinwari_mutton_karahi_1791473105219.jpg",
+      "portion": "500g half wok (Serves 2)",
+      "spiceLevel": "Spicy Desi Ghee"
+    },
+    {
+      "id": 5,
+      "name": "Chicken Biryani",
+      "category": "Rice",
+      "price": 550,
+      "tags": "spicy",
+      "available": true,
+      "description": "Long-grain basmati rice layered with spicy marinated chicken, dried plums, mint, saffron, and traditional Karachi masala.",
+      "image": "/src/assets/images/karachi_chicken_biryani_1791473086349.jpg",
+      "portion": "Single plate with 2 pcs chicken & potato",
+      "spiceLevel": "Karachi Spicy"
+    },
+    {
+      "id": 6,
+      "name": "Vegetable Pulao",
+      "category": "Rice",
+      "price": 420,
+      "tags": "veg",
+      "available": true,
+      "description": "Fragrant basmati rice cooked with garden-fresh vegetables, cumin, whole black pepper, and subtle spices.",
+      "image": "/src/assets/images/karachi_chicken_biryani_1791473086349.jpg",
+      "portion": "Single generous plate",
+      "spiceLevel": "Aromatic & Mild"
+    },
+    {
+      "id": 7,
+      "name": "Zinger Paratha Roll",
+      "category": "Rolls",
+      "price": 450,
+      "tags": "spicy",
+      "available": true,
+      "description": "Crispy fried zinger chicken strip wrapped in a crisp fried laccha paratha with garlic mayo sauce and sliced onions.",
+      "image": "/src/assets/images/zinger_paratha_roll_1791473138394.jpg",
+      "portion": "1 jumbo paratha roll",
+      "spiceLevel": "Tangy Spicy"
+    },
+    {
+      "id": 8,
+      "name": "Paneer Tikka Roll",
+      "category": "Rolls",
+      "price": 480,
+      "tags": "veg",
+      "available": true,
+      "description": "Grilled cottage cheese cubes marinated in spicy yogurt glaze, wrapped in a soft warm paratha with mint chutney.",
+      "image": "/src/assets/images/zinger_paratha_roll_1791473138394.jpg",
+      "portion": "1 jumbo paratha roll",
+      "spiceLevel": "Medium Spice"
+    },
+    {
+      "id": 9,
+      "name": "Mint Margarita",
+      "category": "Drinks",
+      "price": 220,
+      "tags": "veg",
+      "available": true,
+      "description": "Refreshing blend of fresh mint leaves, lemon juice, soda, ice, and black salt for instant hydration.",
+      "image": "/src/assets/images/karachi_drinks_raita_1791536103023.jpg",
+      "portion": "350ml chilled glass",
+      "spiceLevel": "Refreshing / Tangy"
+    },
+    {
+      "id": 10,
+      "name": "Doodh Patti Chai",
+      "category": "Drinks",
+      "price": 150,
+      "tags": "veg",
+      "available": true,
+      "description": "Strong, slow-simmered Pakistani milk tea prepared with rich black tea leaves and cardamom.",
+      "image": "/src/assets/images/karachi_drinks_raita_1791536103023.jpg",
+      "portion": "Traditional clay matka cup",
+      "spiceLevel": "Cardamom Infused"
+    },
+    {
+      "id": 11,
+      "name": "Gulab Jamun (2 pcs)",
+      "category": "Desserts",
+      "price": 250,
+      "tags": "veg",
+      "available": true,
+      "description": "Soft, warm milk-solid dumplings soaked in aromatic saffron and rose sugar syrup.",
+      "image": "/src/assets/images/chicken_malai_boti_1791473120307.jpg",
+      "portion": "2 warm pieces with syrup",
+      "spiceLevel": "Sweet & Fragrant"
+    },
+    {
+      "id": 12,
+      "name": "Kheer",
+      "category": "Desserts",
+      "price": 300,
+      "tags": "veg",
+      "available": true,
+      "description": "Traditional slow-cooked rice pudding infused with milk, cardamom, topped with sliced almonds and pistachios.",
+      "image": "/src/assets/images/chicken_malai_boti_1791473120307.jpg",
+      "portion": "Chilled earthenware bowl",
+      "spiceLevel": "Creamy Sweet"
+    }
+  ],
+  "orders": [
+    {
+      "id": "KB-8841-DEMO",
+      "orderId": "KB-8841-DEMO",
+      "customer": {
+        "name": "Saad Asif",
+        "email": "saadasif696@gmail.com",
+        "phone": "03001234567",
+        "address": "Flat 402, Al-Razi Heights, Block 5, Clifton, Karachi"
+      },
+      "branch": "Clifton",
+      "items": [
+        {
+          "id": 1,
+          "qty": 1,
+          "name": "Chicken Malai Boti",
+          "price": 850
+        },
+        {
+          "id": 5,
+          "qty": 1,
+          "name": "Chicken Biryani",
+          "price": 550
+        },
+        {
+          "id": 9,
+          "qty": 2,
+          "name": "Mint Margarita",
+          "price": 220
+        }
+      ],
+      "subtotal": 1840,
+      "deliveryFee": 150,
+      "total": 1990,
+      "status": "Preparing",
+      "notes": "Please send extra green raita and napkins.",
+      "created_at": "2026-10-11T05:26:34.232Z",
+      "updated_at": "2026-10-11T05:41:34.233Z",
+      "statusHistory": [
+        {
+          "status": "Received",
+          "timestamp": "2026-10-11T05:26:34.233Z"
+        },
+        {
+          "status": "Preparing",
+          "timestamp": "2026-10-11T05:41:34.233Z"
+        }
+      ]
+    }
+  ],
+  "adminTokens": [
+    "kb_token_a47a3595c1a12d750338afd05f2d088ffb224bbec287d9d7"
+  ]
+}

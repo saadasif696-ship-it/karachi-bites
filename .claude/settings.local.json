@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(node --version 2>$null)",
+      "PowerShell(npm --version 2>$null)",
+      "PowerShell(winget --version 2>$null)",
+      "PowerShell(choco --version 2>$null)",
+      "PowerShell(scoop --version 2>$null)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri \"https://nodejs.org/dist/v22.11.0/node-v22.11.0-x64.msi\" -OutFile \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-x64.msi\" -UseBasicParsing; Write-Host \"Download complete. Size: $\\(\\(Get-Item 'C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-x64.msi'\\).Length / 1MB\\) MB\")",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri \"https://github.com/git-for-windows/git/releases/latest/download/Git-2.42.0-64-bit.exe\" -OutFile \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\Git-2.42.0-64-bit.exe\" -UseBasicParsing; Write-Host \"Download complete. Size: $\\(\\(Get-Item 'C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\Git-2.42.0-64-bit.exe'\\).Length / 1MB\\) MB\")",
+      "PowerShell(curl.exe -L --fail -o \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\Git-installer.exe\" \"https://github.com/git-for-windows/git/releases/latest/download/Git-2.42.0-64-bit.exe\" 2>&1; Write-Host \"Exit: $LASTEXITCODE\"; if \\(Test-Path \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\Git-installer.exe\"\\) { Write-Host \"Size: $\\([math]::Round\\(\\(Get-Item 'C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\Git-installer.exe'\\).Length / 1MB, 1\\)\\) MB\" })",
+      "PowerShell(msiexec /i \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-x64.msi\" /quiet /norestart ADDLOCAL=ALL)",
+      "PowerShell(Wait-Process -Id 3008 -Timeout 300)",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\nodejs\\\\\" -ErrorAction SilentlyContinue; Write-Host \"---\"; Get-ChildItem \"C:\\\\Program Files \\(x86\\)\\\\nodejs\\\\\" -ErrorAction SilentlyContinue; Write-Host \"---\"; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\\" -ErrorAction SilentlyContinue)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri \"https://nodejs.org/dist/v22.11.0/node-v22.11.0-x64.exe\" -OutFile \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-x64.exe\" -UseBasicParsing; Write-Host \"Downloaded: $\\([math]::Round\\(\\(Get-Item 'C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-x64.exe'\\).Length / 1MB, 1\\)\\) MB\")",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; $html = Invoke-WebRequest -Uri \"https://nodejs.org/dist/v22.11.0/\" -UseBasicParsing; $html.Links | Where-Object { $_.href -match '\\\\.exe$' -or $_.href -match '\\\\.msi$' } | Select-Object href)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; $html = Invoke-WebRequest -Uri \"https://nodejs.org/en/download/\" -UseBasicParsing; $html.Links | Where-Object { $_.href -match '\\\\.exe$' } | Select-Object href | Sort-Object -Unique)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; $html = Invoke-WebRequest -Uri \"https://nodejs.org/dist/latest/\" -UseBasicParsing; $html.Links | Where-Object { $_.href -match 'win-x64\\\\.\\(exe|msi\\)$' } | Select-Object href)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; $html = Invoke-WebRequest -Uri \"https://nodejs.org/dist/v22.11.0/SHASUMS256.txt\" -UseBasicParsing; $html.Content -split \"`n\" | Where-Object { $_ -match 'win' } | Select-Object -First 20)",
+      "PowerShell($ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -Uri \"https://nodejs.org/dist/v22.11.0/node-v22.11.0-win-x64.zip\" -OutFile \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-win-x64.zip\" -UseBasicParsing; Write-Host \"Downloaded: $\\([math]::Round\\(\\(Get-Item 'C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-win-x64.zip'\\).Length / 1MB, 1\\)\\) MB\")",
+      "PowerShell(Expand-Archive -Path \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\node-v22.11.0-win-x64.zip\" -DestinationPath \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\" -Force; Write-Host \"Extracted to $env:LOCALAPPDATA\\\\Programs\\\\nodejs\")",
+      "PowerShell(& \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\node.exe\" --version; & \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\npm.cmd\" --version)",
+      "PowerShell(Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\nodejs\\\\\" -Recurse | Select-Object FullName, Length)",
+      "PowerShell([Environment]::SetEnvironmentVariable\\(\"Path\", [Environment]::GetEnvironmentVariable\\(\"Path\", \"User\"\\) + \";$env:LOCALAPPDATA\\\\Programs\\\\nodejs\", \"User\"\\); Write-Host \"Added Node.js to user PATH\")",
+      "PowerShell(Start-Process -FilePath \"C:\\\\Users\\\\DELL\\\\Downloads\\\\installers\\\\Git-installer.exe\" -ArgumentList \"/VERYSILENT\", \"/NORESTART\", \"/NOCANCEL\", \"/SP-\", \"/CLOSEAPPLICATIONS\", \"/RESTARTAPPLICATIONS\", \"/COMPONENTS=icons,assoc,assoc_sh\" -Wait -NoNewWindow; Write-Host \"Git installer finished with exit code: $LASTEXITCODE\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Program Files\\\\Git\\\\\" -ErrorAction SilentlyContinue; Write-Host \"---\"; Get-ChildItem \"C:\\\\Program Files \\(x86\\)\\\\Git\\\\\" -ErrorAction SilentlyContinue; Write-Host \"---\"; Get-ChildItem \"$env:LOCALAPPDATA\\\\Programs\\\\Git\\\\\" -ErrorAction SilentlyContinue)",
+      "PowerShell(& \"C:\\\\Program Files\\\\Git\\\\bin\\\\git.exe\" --version)",
+      "PowerShell($env:Path = [Environment]::GetEnvironmentVariable\\(\"Path\", \"User\"\\) + \";\" + [Environment]::GetEnvironmentVariable\\(\"Path\", \"Machine\"\\); node --version; npm --version; git --version)"
+    ]
+  }
+}
